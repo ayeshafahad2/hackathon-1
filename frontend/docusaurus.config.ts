@@ -12,7 +12,7 @@ const config: Config = {
   },
 
   // --- Vercel deployment settings ---
-  url: "https://ayesha-baaji-docasaurus-project-2.vercel.app",
+  url: "https://ayesha-docasaurus-project-1.vercel.app",
   // Using "/" for root deployment on Vercel
   // If deployed to subdirectory, change to "/repo-name/"
   baseUrl: "/",
@@ -33,7 +33,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.ts"),
-          editUrl: "https://github.com/ayeshafahad2/specbook/tree/main/",
+          editUrl: "https://github.com/ayeshafahad2/hackathon-1/tree/main/",
         },
         blog: false,
         theme: {
