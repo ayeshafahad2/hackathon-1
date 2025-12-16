@@ -1,0 +1,24 @@
+{"level":30,"time":1765388788270,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: Anthropic (endpoint: /v1/messages)"}
+{"level":30,"time":1765388788272,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: gemini (endpoint: /v1beta/models/:modelAndAction)"}
+{"level":30,"time":1765388788273,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: vertex-gemini (no endpoint)"}
+{"level":30,"time":1765388788273,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: vertex-claude (no endpoint)"}
+{"level":30,"time":1765388788273,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: deepseek (no endpoint)"}
+{"level":30,"time":1765388788274,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: tooluse (no endpoint)"}
+{"level":30,"time":1765388788274,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: openrouter (no endpoint)"}
+{"level":30,"time":1765388788274,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: OpenAI (endpoint: /v1/chat/completions)"}
+{"level":30,"time":1765388788274,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: maxtoken (no endpoint)"}
+{"level":30,"time":1765388788274,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: groq (no endpoint)"}
+{"level":30,"time":1765388788275,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: cleancache (no endpoint)"}
+{"level":30,"time":1765388788275,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: enhancetool (no endpoint)"}
+{"level":30,"time":1765388788275,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: reasoning (no endpoint)"}
+{"level":30,"time":1765388788275,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: sampling (no endpoint)"}
+{"level":30,"time":1765388788275,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: maxcompletiontokens (no endpoint)"}
+{"level":30,"time":1765388788276,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: cerebras (no endpoint)"}
+{"level":30,"time":1765388788276,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: streamoptions (no endpoint)"}
+{"level":30,"time":1765388788276,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: customparams (no endpoint)"}
+{"level":30,"time":1765388788276,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: vercel (no endpoint)"}
+{"level":30,"time":1765388788276,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: openai-responses (endpoint: /v1/responses)"}
+{"level":30,"time":1765388788276,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"register transformer: forcereasoning (no endpoint)"}
+{"level":30,"time":1765388788338,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"qwen provider registered"}
+{"level":30,"time":1765388789855,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"Server listening at http://127.0.0.1:3456"}
+{"level":30,"time":1765388789856,"pid":1288,"hostname":"DESKTOP-LJ9L7VI","msg":"🚀 LLMs API server listening on http://127.0.0.1:3456"}

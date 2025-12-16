@@ -1,0 +1,129 @@
+.autoScrollControl {
+  position: fixed;
+  bottom: 90px; /* Position above the chatbot */
+  right: 20px;
+  z-index: 999; /* Lower than chatbot */
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 50px; /* Pill-shaped */
+  padding: 0.5rem 1rem;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-theme='light'] .autoScrollControl {
+  background: white;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.controlPanel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.speedControl {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.speedValue {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  min-width: 24px;
+  text-align: center;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.1rem 0.3rem;
+}
+
+.speedSlider {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--ifm-color-emphasis-200);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.speedSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.speedSlider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.controlButton {
+  padding: 0.4rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.controlButton:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+.controlButton.active {
+  background: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .autoScrollControl {
+    bottom: 90px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    max-width: calc(100% - 20px);
+  }
+
+  .controlButton {
+    width: 28px;
+    height: 28px;
+    padding: 0.3rem;
+  }
+}

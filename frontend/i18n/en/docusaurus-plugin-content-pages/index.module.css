@@ -1,0 +1,213 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.hero-banner {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+  border-bottom: 1px solid #3c1e69; /* Dark Purple */
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 25px 50px rgba(168, 85, 247, 0.5);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(167, 79, 252, 0.5);
+  animation: text-flicker 3s infinite alternate;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #d4a0fe; /* Lighter Purple */
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(167, 79, 252, 0.3);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 20px rgba(167, 79, 252, 0.7);
+  }
+  100% {
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(167, 79, 252, 0.3);
+  }
+}
+
+.testimonials {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #0f0b12 0%, #1a1a2e 100%);
+  color: white;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #e9d5ff;
+  text-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
+.testimonialCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
+}
+
+.quoteIcon {
+  font-size: 3rem;
+  color: #a855f7;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.testimonialText {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #d1c4e9;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.testimonialAuthor {
+  display: block;
+  font-weight: bold;
+  color: #e0c4fd;
+}
+
+.testimonialRole {
+  display: block;
+  font-weight: normal;
+  font-size: 0.9rem;
+  color: #b39ddb;
+  margin-top: 0.5rem;
+}
+
+.stats {
+  padding: 4rem 0;
+  background: #1a1a2e;
+  color: white;
+}
+
+.statNumber {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #c084fc;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 1.1rem;
+  color: #d1c4e9;
+}
+
+@media screen and (max-width: 996px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-banner {
+    padding: 3rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .testimonials {
+    padding: 3rem 1rem;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
+  }
+
+  .statLabel {
+    font-size: 1rem;
+  }
+}

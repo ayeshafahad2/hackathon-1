@@ -1,0 +1,145 @@
+/* Features Page Styles for Urdu */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: right; /* Right aligned for RTL */
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #6b21a8 0%, #a855f7 100%);
+  color: white;
+}
+
+.features {
+  padding: 5rem 0;
+  background: #0f0b12;
+}
+
+.featureCard {
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.featureCardInner {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.featureCardInner:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.3);
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  text-align: center;
+}
+
+.featureTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #e0c4fd;
+  text-align: center;
+}
+
+.featureDescription {
+  font-size: 1rem;
+  color: #d1c4e9;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.featureLink {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #7e22ce, #a855f7);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  text-align: center;
+}
+
+.featureLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(168, 85, 247, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.resources {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 4rem 0;
+  color: white;
+  text-align: center;
+}
+
+.resources h2 {
+  color: #e9d5ff;
+  margin-bottom: 1.5rem;
+}
+
+.resources p {
+  color: #d1c4e9;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.resourceLink {
+  display: block;
+  padding: 1.5rem;
+  background: rgba(168, 85, 247, 0.1);
+  border-radius: 12px;
+  color: #e0c4fd;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  text-align: center;
+}
+
+.resourceLink:hover {
+  background: rgba(168, 85, 247, 0.2);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(168, 85, 247, 0.2);
+  text-decoration: none;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+
+  .features {
+    padding: 3rem 1rem;
+  }
+
+  .featureCard {
+    margin-bottom: 1.5rem;
+  }
+
+  .featureTitle {
+    font-size: 1.3rem;
+  }
+
+  .featureDescription {
+    font-size: 0.9rem;
+  }
+
+  .resources {
+    padding: 2rem 1rem;
+  }
+}

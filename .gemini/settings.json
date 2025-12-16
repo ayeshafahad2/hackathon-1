@@ -1,0 +1,71 @@
+// 8.2 Gemini CLI Project
+// gemini init
+// # OR
+// npx @google/gemini-cli init
+
+// 8.3 Claude CLI Project
+// claude init      # workspace
+// claude chat      # run chat directly
+
+
+// Just paste into setting.json
+{
+  "mcpServers": {
+    "github": {
+      "httpUrl": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_PAT}"
+      },
+      "timeout": 8000
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      }
+    },
+    // "neon": {
+    //   "command": "npx",
+    //   "args": ["-y", "@neondatabase/mcp"],
+    //   "env": {
+    //     "NEON_API_KEY": "${NEON_API_KEY}"
+    //   }
+    // },
+    "firebase": {
+      "command": "npx",
+      "args": ["firebase-tools", "experimental:mcp"],
+      "env": {
+        "FIREBASE_TOKEN": "${FIREBASE_TOKEN}"
+      }
+    },
+    "figma": {
+      "httpUrl": "https://www.figma.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${FIGMA_PERSONAL_TOKEN}"
+      },
+      "timeout": 8000
+    }
+  },
+  "security": {
+    "auth": { "selectedType": "oauth-personal" }
+  },
+  "ui": {
+    "theme": "Default",
+    "themeOptions": [
+      "Default",
+      "Light",
+      "Dark",
+      "Blue",
+      "Solarized",
+      "SolarizedLight",
+      "SolarizedDark",
+      "Midnight",
+      "Glass",
+      "Matrix",
+      "Cyberpunk",
+      "Minimal"
+    ],
+    "enableAutoThemeSwitch": true
+  }
+}

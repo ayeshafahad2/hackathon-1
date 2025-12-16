@@ -1,0 +1,60 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.hero-banner {
+  padding: 8rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+  border-bottom: 1px solid #3c1e69; /* Dark Purple */
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(167, 79, 252, 0.5);
+  animation: text-flicker 3s infinite alternate;
+}
+
+.hero-subtitle {
+  font-size: 1.75rem;
+  color: #d4a0fe; /* Lighter Purple */
+  margin-bottom: 2.5rem;
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(167, 79, 252, 0.3);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 20px rgba(167, 79, 252, 0.7);
+  }
+  100% {
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(167, 79, 252, 0.3);
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .hero-banner {
+    padding: 6rem 2rem;
+  }
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

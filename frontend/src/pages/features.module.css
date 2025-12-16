@@ -1,0 +1,474 @@
+.featuresPage {
+  padding: 5rem 0 8rem;
+  background: linear-gradient(135deg, #0f0b12 0%, #1a1a2e 50%, #0f0b12 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.featuresPage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(168, 85, 247, 0.15) 0%, transparent 30%),
+    radial-gradient(circle at 85% 15%, rgba(107, 33, 168, 0.15) 0%, transparent 30%),
+    radial-gradient(circle at 15% 85%, rgba(168, 85, 247, 0.1) 0%, transparent 30%),
+    radial-gradient(circle at 85% 85%, rgba(107, 33, 168, 0.1) 0%, transparent 30%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.featuresContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.featuresHeader {
+  text-align: center;
+  margin-bottom: 6rem;
+  position: relative;
+  padding-top: 1rem;
+}
+
+.featuresHeader h1 {
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, #c084fc, #a855f7, #e9d5ff, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  position: relative;
+  letter-spacing: -0.8px;
+  text-shadow: 0 0 40px rgba(192, 132, 252, 0.6);
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 20px rgba(192, 132, 252, 0.6); }
+  to { text-shadow: 0 0 40px rgba(168, 85, 247, 0.8), 0 0 60px rgba(107, 33, 168, 0.6); }
+}
+
+.featuresHeader h1::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 10px;
+  background: linear-gradient(90deg, transparent, #a855f7, #c084fc, #e9d5ff, transparent);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.7);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.featuresHeader p {
+  font-size: 1.7rem;
+  color: #f0e7ff;
+  max-width: 900px;
+  margin: 1.8rem auto 0;
+  line-height: 1.8;
+  font-weight: 300;
+  text-shadow: 0 0 15px rgba(240, 231, 255, 0.4);
+  position: relative;
+}
+
+.featuresHeader p::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #a855f7, #c084fc);
+  border-radius: 2px;
+}
+
+/* Container for all feature sections */
+.featuresContainerAll {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  border-radius: 40px;
+  padding: 4rem;
+  margin: 2rem auto 0;
+  box-shadow:
+    inset 0 0 30px rgba(107, 33, 168, 0.2),
+    0 25px 70px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.featuresContainerAll::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 40px;
+  padding: 2px;
+  background: linear-gradient(135deg, #a855f7, #c084fc, #e9d5ff, #c084fc, #a855f7);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: 1;
+}
+
+/* Feature sections grid layout */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  gap: 4rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 3;
+}
+
+.featureSection {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 3.5rem;
+  margin: 0 0 2.5rem;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 0 1px rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 450px;
+  transform-style: preserve-3d;
+}
+
+.featureSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #a855f7, #c084fc, #e9d5ff);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s ease;
+  z-index: 2;
+}
+
+.featureSection::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  z-index: 1;
+}
+
+.featureSection:hover {
+  transform: translateY(-20px) scale(1.05) rotateX(5deg);
+  box-shadow:
+    0 40px 90px rgba(168, 85, 247, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 0 0 1px rgba(168, 85, 247, 0.3);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(168, 85, 247, 0.5);
+}
+
+.featureSection:hover::before {
+  transform: scaleX(1);
+}
+
+.featureSection:hover::after {
+  opacity: 1;
+}
+
+.featureSection h2 {
+  color: #ffffff;
+  margin: 0 0 2rem 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 2px solid rgba(192, 132, 252, 0.3);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  z-index: 3;
+}
+
+.featureSection h2::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #c084fc;
+  box-shadow: 0 0 20px #c084fc, 0 0 30px rgba(192, 132, 252, 0.8);
+  animation: pulse-glow 2s infinite;
+  z-index: 3;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(192, 132, 252, 0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(192, 132, 252, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(192, 132, 252, 0); }
+}
+
+.featureSection p {
+  line-height: 2;
+  color: #e6e1f0;
+  font-size: 1.2rem;
+  margin: 0 0 2.2rem 0;
+  flex-grow: 1;
+  text-shadow: 0 0 8px rgba(230, 225, 240, 0.2);
+  z-index: 3;
+}
+
+/* Action buttons for each feature */
+.featureActions {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  justify-content: flex-start;
+  z-index: 3;
+}
+
+.actionButton {
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  min-width: 160px;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.actionButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.actionButton:hover::before {
+  left: 100%;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #7e22ce, #a855f7, #c084fc);
+  color: white;
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5);
+}
+
+.primaryButton:hover {
+  background: linear-gradient(135deg, #6b21a8, #9333ea, #a855f7);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.7);
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.12);
+  color: #f0e7ff;
+  border: 1px solid rgba(192, 132, 252, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.secondaryButton:hover {
+  background: rgba(168, 85, 247, 0.3);
+  color: white;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.4);
+}
+
+/* Special styling for the chat section */
+.chatSection {
+  grid-column: 1 / -1; /* Span entire width */
+  text-align: center;
+  min-height: auto;
+  background: linear-gradient(145deg, rgba(168, 85, 247, 0.1), rgba(107, 33, 168, 0.08));
+  border: 1px solid rgba(192, 132, 252, 0.3);
+}
+
+.chatPreviewContainer {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(192, 132, 252, 0.4) !important;
+  border-radius: 26px !important;
+  padding: 3rem !important;
+  margin: 0 auto 2.5rem !important;
+  position: relative;
+  overflow: hidden;
+  max-width: 850px;
+  backdrop-filter: blur(16px);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
+
+.chatPreviewContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #a855f7, #c084fc, #e9d5ff);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.7);
+}
+
+.chatPreviewContainer h3 {
+  margin: 0 0 2rem !important;
+  color: #ffffff !important;
+  font-size: 2rem !important;
+  font-weight: 600;
+  position: relative;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Icon styling for feature sections */
+.featureIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .featuresGrid {
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  }
+
+  .featuresHeader h1 {
+    font-size: 3.8rem;
+  }
+
+  .featureSection {
+    padding: 2.8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featuresHeader h1 {
+    font-size: 3.2rem;
+  }
+
+  .featureSection {
+    padding: 2.5rem;
+    min-height: auto;
+  }
+
+  .featureActions {
+    flex-direction: column;
+  }
+
+  .actionButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .featuresPage {
+    padding: 4rem 0 5rem;
+  }
+
+  .featuresContainer {
+    padding: 0 1.5rem;
+  }
+
+  .featuresHeader h1 {
+    font-size: 2.8rem;
+  }
+
+  .featuresHeader h1::after {
+    width: 160px;
+    height: 8px;
+    bottom: -20px;
+  }
+
+  .featuresHeader p {
+    font-size: 1.4rem;
+  }
+
+  .featureSection {
+    padding: 2rem;
+  }
+
+  .featureSection h2 {
+    font-size: 1.9rem;
+    gap: 1rem;
+  }
+
+  .chatPreviewContainer {
+    padding: 2.2rem !important;
+  }
+
+  .chatPreviewContainer h3 {
+    font-size: 1.8rem !important;
+  }
+
+  .featureSection p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featuresHeader h1 {
+    font-size: 2.4rem;
+  }
+
+  .featureSection {
+    padding: 1.8rem;
+  }
+
+  .featuresGrid {
+    gap: 2.5rem;
+  }
+
+  .actionButton {
+    padding: 0.9rem 1.4rem;
+    font-size: 1.05rem;
+  }
+}
