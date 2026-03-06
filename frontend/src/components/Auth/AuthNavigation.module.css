@@ -1,0 +1,50 @@
+/* frontend/src/components/Auth/AuthNavigation.module.css */
+.authNav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loggedIn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loggedOut {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.welcome {
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.profileLink, .signInLink, .signUpLink {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+}
+
+.profileLink:hover, .signInLink:hover, .signUpLink:hover {
+  background-color: #eff6ff;
+}
+
+.logoutButton {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.logoutButton:hover {
+  background-color: #dc2626;
+}

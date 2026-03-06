@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 import { translate } from '@docusaurus/Translate';
+import { useAuth } from '../../contexts/AuthContext';
+import { useChat } from '../../contexts/ChatContext';
 import styles from './Chat.module.css';
-import { chatWithMockBackend } from './mockService';
 
 interface Message {
   id: string;
@@ -13,10 +14,12 @@ interface Message {
 
 interface EnhancedChatProps {
   compact?: boolean; // For use in sidebar/docked mode
+  chapterId?: string; // Optional chapter ID for personalization/translation
 }
 
-const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false }) => {
-  const [messages, setMessages] = useState<Message[]>([]);
+const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false, chapterId = 'default' }) => {
+  const { state, dispatch, clearChat } = useChat();
+  const { user, loading: authLoading } = useAuth();
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [selectedText, setSelectedText] = useState<string | null>(null);
@@ -24,6 +27,11 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
   const [isChatOpen, setIsChatOpen] = useState(!compact); // Start open if not compact
   const [backendStatus, setBackendStatus] = useState<'checking' | 'connected' | 'disconnected' | 'error'>('checking');
   const [showScrollToBottom, setShowScrollToBottom] = useState(false);
+  const [availableLanguages, setAvailableLanguages] = useState([
+    { code: 'en', name: 'English' },
+    { code: 'ur', name: 'اردو (Urdu)' }
+  ]);
+  const [currentLanguage, setCurrentLanguage] = useState('en');
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const { colorMode } = useColorMode();
@@ -33,7 +41,7 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
   useEffect(() => {
     const checkBackendStatus = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/v1/chat/health', {
+        const response = await fetch('http://localhost:8000/health', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -78,7 +86,7 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
         scrollToBottom();
       }
     }
-  }, [messages]);
+  }, [state.messages]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -96,7 +104,7 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
       timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    dispatch({ type: 'ADD_MESSAGE', payload: userMessage });
     setInputValue('');
     setIsLoading(true);
 
@@ -106,16 +114,20 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
       let data;
 
       try {
+        // Get user token if authenticated
+        const token = localStorage.getItem('access_token');
+        
         response = await fetch('http://localhost:8000/api/v1/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {}), // Add auth header if token exists
           },
           body: JSON.stringify({
             message: inputValue,
             session_id: sessionId || undefined,
             selected_text: selectedText || undefined,
-            language: 'en', // Will be dynamic based on site language
+            language: currentLanguage, // Use current language setting
           }),
         });
 
@@ -127,9 +139,8 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
         setBackendStatus('connected'); // Backend is working
       } catch (apiError) {
         console.warn('Backend API unavailable, using mock service:', apiError);
-        // Use mock service when backend is unavailable
-        data = await chatWithMockBackend(inputValue);
-        setBackendStatus('disconnected');
+        // For now, just show an error since we don't have mock service in this context
+        throw apiError;
       }
 
       // Add assistant message
@@ -140,7 +151,7 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
         timestamp: new Date(),
       };
 
-      setMessages(prev => [...prev, assistantMessage]);
+      dispatch({ type: 'ADD_MESSAGE', payload: assistantMessage });
       setSessionId(data.session_id);
       setSelectedText(null); // Clear selected text after use
     } catch (error) {
@@ -156,7 +167,7 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
         role: 'assistant',
         timestamp: new Date(),
       };
-      setMessages(prev => [...prev, errorMessage]);
+      dispatch({ type: 'ADD_MESSAGE', payload: errorMessage });
     } finally {
       setIsLoading(false);
     }
@@ -169,9 +180,37 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
     }
   };
 
-  const startNewChat = () => {
-    setMessages([]);
-    setSessionId('');
+  const { personalizeContent, translateToUrdu } = useChat();
+
+  const handlePersonalizeContent = async () => {
+    if (!user) {
+      alert('Please sign in to use personalization features.');
+      return;
+    }
+
+    try {
+      await personalizeContent(chapterId);
+      alert('Content personalization has been applied for this chapter! You\'ve earned 50 bonus points.');
+    } catch (error) {
+      console.error('Error personalizing content:', error);
+      alert('Failed to personalize content. Please try again.');
+    }
+  };
+
+  const handleTranslateToUrdu = async () => {
+    if (!user) {
+      alert('Please sign in to use translation features.');
+      return;
+    }
+
+    try {
+      await translateToUrdu(chapterId);
+      setCurrentLanguage('ur');
+      alert('Content has been translated to Urdu! You\'ve earned 50 bonus points.');
+    } catch (error) {
+      console.error('Error translating to Urdu:', error);
+      alert('Failed to translate content. Please try again.');
+    }
   };
 
   if (compact) {
@@ -194,10 +233,35 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
         {isChatOpen && (
           <div className={styles.expandedCompactView}>
             <div className={styles.chatControls}>
-              <button onClick={startNewChat} className={styles.newChatButton}>
+              <button onClick={clearChat} className={styles.newChatButton}>
                 New Chat
               </button>
             </div>
+
+            {/* Bonus Points and Personalization Controls */}
+            {user && (
+              <div className={styles.bonusControls}>
+                <div className={styles.bonusPoints}>
+                  <span>Bonus Points: {user.bonusPoints}</span>
+                </div>
+                <div className={styles.personalizationControls}>
+                  <button 
+                    className={styles.personalizeButton} 
+                    onClick={handlePersonalizeContent}
+                    title="Personalize content based on your background"
+                  >
+                    🎯 Personalize Content
+                  </button>
+                  <button 
+                    className={styles.translateButton} 
+                    onClick={handleTranslateToUrdu}
+                    title="Translate to Urdu"
+                  >
+                    🌍 Translate to Urdu
+                  </button>
+                </div>
+              </div>
+            )}
 
             <div
               className={styles.messagesContainer}
@@ -211,13 +275,16 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
                 }
               }}
             >
-              {messages.length === 0 ? (
+              {state.messages.length === 0 ? (
                 <div className={styles.welcomeMessage}>
                   <p>{translate({ id: 'chat.welcome', message: 'Welcome! I am your AI assistant for the Physical AI & Humanoid Robotics textbook.' })}</p>
                   <p>{translate({ id: 'chat.instructions', message: 'Select text on the page and ask questions about it, or ask general questions about the content.' })}</p>
+                  {user && (
+                    <p>As a registered user, you can earn bonus points by personalizing content and translating to Urdu.</p>
+                  )}
                 </div>
               ) : (
-                messages.map((message) => (
+                state.messages.map((message) => (
                   <div
                     key={message.id}
                     className={`${styles.message} ${styles[message.role]}`}
@@ -253,15 +320,6 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
                     {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </div>
                 </div>
-              )}
-              {showScrollToBottom && (
-                <button
-                  className={styles.scrollToBottomButton}
-                  onClick={scrollToBottom}
-                  aria-label="Scroll to bottom"
-                >
-                  ↓
-                </button>
               )}
               {showScrollToBottom && (
                 <button
@@ -323,13 +381,49 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
     <div className={`${styles.chatContainer} ${isDarkTheme ? styles.dark : styles.light}`}>
       <div className={styles.chatHeader}>
         <h3>{translate({ id: 'chat.title', message: 'AI Textbook Assistant' })}</h3>
-        <button
-          onClick={startNewChat}
-          className={styles.newChatButton}
-        >
-          New Chat
-        </button>
+        <div className={styles.headerActions}>
+          <select 
+            value={currentLanguage} 
+            onChange={(e) => setCurrentLanguage(e.target.value)}
+            className={styles.languageSelect}
+          >
+            {availableLanguages.map(lang => (
+              <option key={lang.code} value={lang.code}>{lang.name}</option>
+            ))}
+          </select>
+          <button onClick={clearChat} className={styles.newChatButton}>
+            New Chat
+          </button>
+        </div>
       </div>
+
+      {/* Bonus Points and Personalization Controls */}
+      {user && (
+        <div className={styles.bonusControls}>
+          <div className={styles.bonusPoints}>
+            <span>🏆 Bonus Points: {user.bonusPoints}</span>
+            <span>👤 Hi, {user.email.split('@')[0]}!</span>
+          </div>
+          <div className={styles.personalizationControls}>
+            <button 
+              className={styles.personalizeButton} 
+              onClick={handlePersonalizeContent}
+              title="Personalize content based on your background"
+              disabled={authLoading}
+            >
+              🎯 Personalize Content
+            </button>
+            <button 
+              className={styles.translateButton} 
+              onClick={handleTranslateToUrdu}
+              title="Translate to Urdu"
+              disabled={authLoading}
+            >
+              🌍 Translate to Urdu
+            </button>
+          </div>
+        </div>
+      )}
 
       {selectedText && (
         <div className={styles.selectedTextPreview}>
@@ -350,13 +444,23 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false })
           }
         }}
       >
-        {messages.length === 0 ? (
+        {state.messages.length === 0 ? (
           <div className={styles.welcomeMessage}>
             <p>{translate({ id: 'chat.welcome', message: 'Welcome! I am your AI assistant for the Physical AI & Humanoid Robotics textbook.' })}</p>
             <p>{translate({ id: 'chat.instructions', message: 'Select text on the page and ask questions about it, or ask general questions about the content.' })}</p>
+            {user && (
+              <div className={styles.bonusInfo}>
+                <h4>Bonus Points Opportunity!</h4>
+                <ul>
+                  <li>🎯 50 points for personalizing content in chapters</li>
+                  <li>🌍 50 points for translating content to Urdu</li>
+                  <li>Total: {user.bonusPoints} points earned so far</li>
+                </ul>
+              </div>
+            )}
           </div>
         ) : (
-          messages.map((message) => (
+          state.messages.map((message) => (
             <div
               key={message.id}
               className={`${styles.message} ${styles[message.role]}`}

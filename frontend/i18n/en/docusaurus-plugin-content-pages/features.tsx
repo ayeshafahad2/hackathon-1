@@ -43,7 +43,7 @@ export default function FeaturesPage(): React.ReactElement {
       <main>
         <section className={styles.features}>
           <div className="container">
-            <div className="row">
+            <div className="row gap-10">
               <FeatureSection
                 title="ROS 2 Fundamentals"
                 description="Master the Robot Operating System 2, the middleware that connects all components of modern robotics systems. Learn about nodes, topics, services, and actions."
@@ -71,7 +71,7 @@ export default function FeaturesPage(): React.ReactElement {
 
         <section className={styles.features}>
           <div className="container">
-            <div className="row">
+            <div className="row gap-4">
               <FeatureSection
                 title="Vision-Language-Action"
                 description="Combine the power of LLMs with robotics. Learn how to translate natural language commands into robot actions using VLA models."

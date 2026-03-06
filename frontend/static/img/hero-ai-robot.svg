@@ -1,0 +1,132 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="800" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <path d="M0 100 L800 100" stroke="white" stroke-width="1"/>
+    <path d="M0 200 L800 200" stroke="white" stroke-width="1"/>
+    <path d="M0 300 L800 300" stroke="white" stroke-width="1"/>
+    <path d="M0 400 L800 400" stroke="white" stroke-width="1"/>
+    <path d="M0 500 L800 500" stroke="white" stroke-width="1"/>
+    <path d="M0 600 L800 600" stroke="white" stroke-width="1"/>
+    <path d="M0 700 L800 700" stroke="white" stroke-width="1"/>
+    <path d="M100 0 L100 800" stroke="white" stroke-width="1"/>
+    <path d="M200 0 L200 800" stroke="white" stroke-width="1"/>
+    <path d="M300 0 L300 800" stroke="white" stroke-width="1"/>
+    <path d="M400 0 L400 800" stroke="white" stroke-width="1"/>
+    <path d="M500 0 L500 800" stroke="white" stroke-width="1"/>
+    <path d="M600 0 L600 800" stroke="white" stroke-width="1"/>
+    <path d="M700 0 L700 800" stroke="white" stroke-width="1"/>
+  </g>
+  
+  <!-- Central AI Robot Head -->
+  <g filter="url(#glow)">
+    <!-- Head outline -->
+    <rect x="250" y="200" width="300" height="350" rx="40" stroke="url(#primaryGradient)" stroke-width="3" fill="rgba(99, 102, 241, 0.05)"/>
+    
+    <!-- Eyes -->
+    <ellipse cx="340" cy="310" rx="25" ry="25" fill="url(#primaryGradient)"/>
+    <ellipse cx="460" cy="310" rx="25" ry="25" fill="url(#primaryGradient)"/>
+    <circle cx="340" cy="310" r="10" fill="white"/>
+    <circle cx="460" cy="310" r="10" fill="white"/>
+    
+    <!-- Antenna -->
+    <line x1="400" y1="200" x2="400" y2="140" stroke="url(#primaryGradient)" stroke-width="4"/>
+    <circle cx="400" cy="125" r="15" fill="url(#accentGradient)"/>
+    <circle cx="400" cy="125" r="7" fill="white" opacity="0.6"/>
+    
+    <!-- Mouth -->
+    <rect x="330" y="420" width="140" height="12" rx="6" fill="url(#primaryGradient)" opacity="0.8"/>
+    
+    <!-- Circuit lines -->
+    <path d="M280 360 L260 360" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.5"/>
+    <path d="M520 360 L540 360" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.5"/>
+    <circle cx="260" cy="360" r="4" fill="url(#primaryGradient)"/>
+    <circle cx="540" cy="360" r="4" fill="url(#primaryGradient)"/>
+  </g>
+  
+  <!-- Neural Network Nodes -->
+  <g>
+    <circle cx="150" cy="180" r="10" fill="url(#primaryGradient)" opacity="0.8"/>
+    <circle cx="150" cy="180" r="5" fill="white"/>
+    <line x1="150" y1="180" x2="250" y2="240" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.4"/>
+  </g>
+  
+  <g>
+    <circle cx="650" cy="200" r="9" fill="url(#accentGradient)" opacity="0.8"/>
+    <circle cx="650" cy="200" r="4.5" fill="white"/>
+    <line x1="650" y1="200" x2="550" y2="240" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.4"/>
+  </g>
+  
+  <g>
+    <circle cx="130" cy="450" r="8" fill="url(#accentGradient)" opacity="0.8"/>
+    <circle cx="130" cy="450" r="4" fill="white"/>
+    <line x1="130" y1="450" x2="220" y2="420" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.4"/>
+  </g>
+  
+  <g>
+    <circle cx="670" cy="480" r="9" fill="url(#primaryGradient)" opacity="0.8"/>
+    <circle cx="670" cy="480" r="4.5" fill="white"/>
+    <line x1="670" y1="480" x2="580" y2="450" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.4"/>
+  </g>
+  
+  <!-- Data rings -->
+  <ellipse cx="400" cy="400" rx="200" ry="100" stroke="url(#primaryGradient)" stroke-width="1.5" fill="none" opacity="0.15" transform="rotate(-30 400 400)"/>
+  <ellipse cx="400" cy="400" rx="200" ry="100" stroke="url(#accentGradient)" stroke-width="1.5" fill="none" opacity="0.15" transform="rotate(30 400 400)"/>
+  
+  <!-- Bottom circuit pattern -->
+  <g opacity="0.6">
+    <path d="M300 600 Q400 650 500 600" stroke="url(#primaryGradient)" stroke-width="3" fill="none"/>
+    <circle cx="300" cy="600" r="6" fill="url(#primaryGradient)"/>
+    <circle cx="400" cy="625" r="6" fill="url(#accentGradient)"/>
+    <circle cx="500" cy="600" r="6" fill="url(#primaryGradient)"/>
+  </g>
+  
+  <!-- Floating particles -->
+  <circle cx="180" cy="550" r="4" fill="url(#primaryGradient)">
+    <animate attributeName="cy" values="550;540;550" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="620" cy="580" r="4" fill="url(#accentGradient)">
+    <animate attributeName="cy" values="580;570;580" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="280" r="3" fill="url(#accentGradient)">
+    <animate attributeName="cx" values="200;210;200" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Corner decorations -->
+  <circle cx="50" cy="50" r="30" stroke="url(#primaryGradient)" stroke-width="2" fill="none" opacity="0.3"/>
+  <circle cx="750" cy="750" r="30" stroke="url(#accentGradient)" stroke-width="2" fill="none" opacity="0.3"/>
+  <circle cx="750" cy="50" r="20" stroke="url(#primaryGradient)" stroke-width="2" fill="none" opacity="0.2"/>
+  <circle cx="50" cy="750" r="20" stroke="url(#accentGradient)" stroke-width="2" fill="none" opacity="0.2"/>
+</svg>

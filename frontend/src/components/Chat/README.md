@@ -34,8 +34,8 @@ The AI Textbook Assistant is an intelligent chatbot integrated into the Physical
 ### Chat Widget
 - **Location**: Bottom-right corner of all pages (by default)
 - **Function**: Toggle button to open/close the chat interface
-- **Features**: 
-  - Animated chat icon (🤖)
+- **Features**:
+  - Clean robot icon SVG
   - Unread message indicator (red dot)
   - Hover effects and smooth transitions
 
@@ -46,10 +46,10 @@ The AI Textbook Assistant is an intelligent chatbot integrated into the Physical
 - **Action Buttons**: Send message functionality
 
 ### Message Display
-- **User Messages**: Blue background, right-aligned
-- **Assistant Messages**: Light gray background, left-aligned
+- **User Messages**: Indigo background, right-aligned
+- **Assistant Messages**: Gray background, left-aligned
 - **Timestamps**: Time indicators for each message
-- **Copy Button**: 📋 icon to copy message content
+- **Copy Button**: Icon to copy message content
 
 ## API Integration
 

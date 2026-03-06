@@ -95,7 +95,7 @@ def start_fastapi_server():
 def main():
     """Main startup sequence"""
     print("=" * 60)
-    print("🤖 PHYSICAL AI & HUMANOID ROBOTICS RAG CHATBOT STARTUP")
+    print("PHYSICAL AI & HUMANOID ROBOTICS RAG CHATBOT STARTUP")
     print("=" * 60)
     
     # Check dependencies

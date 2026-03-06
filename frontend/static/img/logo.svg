@@ -1,0 +1,25 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  {/* Robot head */}
+  <rect x="10" y="6" width="12" height="12" rx="3" fill="currentColor" />
+  
+  {/* Robot eyes */}
+  <circle cx="14" cy="10" r="1.5" fill="white" />
+  <circle cx="18" cy="10" r="1.5" fill="white" />
+  
+  {/* Robot body */}
+  <rect x="12" y="18" width="8" height="8" rx="1.5" fill="currentColor" />
+  
+  {/* Circuit lines */}
+  <path d="M8 14 L9 14" stroke="white" stroke-width="0.7" />
+  <path d="M23 14 L24 14" stroke="white" stroke-width="0.7" />
+  <path d="M13 23 L14 23" stroke="white" stroke-width="0.7" />
+  <path d="M18 23 L19 23" stroke="white" stroke-width="0.7" />
+  
+  {/* AI neural network dots */}
+  <circle cx="6" cy="8" r="1.2" fill="currentColor" />
+  <circle cx="7" cy="11" r="1" fill="currentColor" />
+  <circle cx="5" cy="12" r="1" fill="currentColor" />
+  <circle cx="26" cy="8" r="1.2" fill="currentColor" />
+  <circle cx="25" cy="11" r="1" fill="currentColor" />
+  <circle cx="27" cy="12" r="1" fill="currentColor" />
+</svg>

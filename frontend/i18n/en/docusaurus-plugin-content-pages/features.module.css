@@ -1,7 +1,7 @@
 /* Features Page Styles */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 4rem 0rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -10,19 +10,22 @@
 }
 
 .features {
+  margin:10rem;
   padding: 5rem 0;
   background: #0f0b12;
 }
 
 .featureCard {
+  margin: 20em;
   padding: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .featureCardInner {
-  background: rgba(255, 255, 255, 0.05);
+  /* background: rgba(255, 255, 255, 0.05); */
   backdrop-filter: blur(10px);
   border-radius: 16px;
+  margin: 2rem;
   padding: 2rem;
   height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;

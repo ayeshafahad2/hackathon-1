@@ -2,10 +2,20 @@ fastapi==0.104.1
 uvicorn[standard]==0.24.0
 pydantic==2.5.0
 pydantic-settings==2.1.0
-openai>=1.109.1
+google-generativeai>=0.8.5
 qdrant-client>=1.7.0
 asyncpg==0.29.0
 python-dotenv==1.0.0
 pytest==7.4.3
 httpx==0.25.2
 tiktoken==0.5.2
+psycopg2-binary==2.9.7
+drizzle-orm==0.29.0
+better-auth==1.4.7
+pg8000==1.29.0
+googletrans==4.0.0-rc1
+
+# RAG Chatbot dependencies
+sentence-transformers>=2.2.2
+chromadb>=0.4.22
+numpy>=1.24.0

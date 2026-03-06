@@ -5,16 +5,12 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: ReactNode;
-  icon: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
     title: 'Master the Core of Robotics',
-    Svg: () => <img src="https://loremflickr.com/320/240/robot,purple" alt="A sophisticated robot" />,
-    icon: '🤖',
     description: (
       <>
         Go beyond the basics and delve into the intricate mechanics of humanoid robots. Understand the principles of kinematics, dynamics, and control that underpin modern robotics and build a strong foundation for advanced applications.
@@ -23,8 +19,6 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Unlock the Power of AI',
-    Svg: () => <img src="https://loremflickr.com/320/240/ai,purple" alt="An AI brain" />,
-    icon: '🧠',
     description: (
       <>
         Explore the cutting-edge AI that drives intelligent behavior in robots. This textbook covers everything from machine learning and computer vision to natural language processing and reinforcement learning, equipping you with the skills to create truly smart robots.
@@ -33,26 +27,20 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Create Real-World Solutions',
-    Svg: () => <img src="https://loremflickr.com/320/240/humanoid,purple" alt="A humanoid robot interacting with the world" />,
-    icon: '🚀',
     description: (
       <>
-        Put your knowledge into practice with hands-on projects and real-world case studies. Learn how to design, build, and program humanoid robots to solve complex problems and make a tangible impact on the world.
+        Put knowledge into practice with hands-on projects and real-world case studies. Learn how to design, build, and program humanoid robots to solve complex problems and make a tangible impact on the world.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description, icon}: FeatureItem) {
+function Feature({title, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4', styles.feature)}>
-      <div className="text--center">
-        <div className={styles.featureIcon}>{icon}</div>
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3" className={styles['feature-title']}>{title}</Heading>
-        <p className={styles['feature-description']}>{description}</p>
+      <div className={styles.featureContent}>
+        <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+        <p className={styles.featureDescription}>{description}</p>
       </div>
     </div>
   );
@@ -62,6 +50,12 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className={styles.featuresHeader}>
+          <Heading as="h2" className={styles.featuresTitle}>Why This Textbook?</Heading>
+          <p className={styles.featuresSubtitle}>
+            Your complete guide to mastering Physical AI & Humanoid Robotics
+          </p>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
