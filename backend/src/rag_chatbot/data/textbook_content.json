@@ -7,73 +7,336 @@
   "chapters": [
     {
       "id": "week-1",
-      "title": "Introduction to Humanoid Robotics",
+      "title": "Introduction to Physical AI",
       "order": 1,
       "difficulty": "Beginner",
       "sections": [
         {
           "id": "week-1-section-1",
-          "title": "What are Humanoid Robots?",
-          "content": "Humanoid robots are machines designed to resemble the human body in shape and structure. They typically have a head, torso, two arms, and two legs, mimicking human anatomy. The goal is to create machines that can operate in human environments, perform human-like tasks, and interact with humans naturally.\n\nKey Characteristics:\n1. Anthropomorphic Design: Body structure similar to humans with joints that move like human joints (shoulders, elbows, wrists, hips, knees, ankles).\n2. Bipedal Locomotion: Most humanoid robots walk on two legs, requiring sophisticated balance control.\n3. Manipulation Capabilities: Human-like arms and hands allow grasping and manipulating objects designed for human use.\n4. Sensory Systems: Advanced sensors for vision, hearing, touch, and balance enable perception and interaction.\n\nApplications:\n- Healthcare: Assisting elderly patients, rehabilitation therapy, surgical assistance\n- Manufacturing: Working alongside humans, performing dangerous tasks\n- Service Industry: Customer service, hospitality, retail assistance\n- Research: Studying human cognition, movement, and social interaction\n- Education: Teaching STEM concepts, programming, and robotics\n- Space Exploration: Working in environments designed for humans",
-          "tags": ["humanoid", "introduction", "basics", "robot anatomy", "applications"],
-          "metadata": {"chapter": "Week 1", "section": 1, "keyConcepts": ["Anthropomorphic Design", "Bipedal Locomotion", "Manipulation", "Sensory Systems"]}
+          "title": "Foundations of Physical AI and Embodied Intelligence",
+          "content": "Physical AI represents a paradigm shift in artificial intelligence, moving beyond purely digital computations to systems that interact with and understand the physical world. Embodied intelligence refers to the idea that an agent's intelligence is deeply intertwined with its physical body and its interactions with the environment.\n\nKey concepts include:\n1. Perception-Action Cycle: How robots perceive their environment and use that information to inform their actions, which in turn changes their perception.\n2. Affordances: The possibilities for action that an environment offers to an individual. For a robot, understanding affordances means recognizing how objects and surfaces can be interacted with based on its physical capabilities.\n3. Sensorimotor Contingencies: The lawful relationships between an agent's movements and the resulting sensory changes. Learning these contingencies is crucial for a robot to develop a stable perception of its own body and the world.",
+          "tags": ["Physical AI", "embodied intelligence", "perception-action cycle", "affordances", "sensorimotor"],
+          "metadata": {"chapter": "Week 1", "section": 1, "keyConcepts": ["Embodiment", "Perception-Action Loop", "Affordances"]}
         },
         {
           "id": "week-1-section-2",
-          "title": "History and Evolution of Humanoid Robots",
-          "content": "The dream of creating artificial humans dates back thousands of years.\n\nEarly Concepts (1495-1950s):\n- Leonardo da Vinci's Mechanical Knight (1495): First humanoid robot design\n- Jacques de Vaucanson's Digesting Duck (1739): An automaton that could eat and digest\n- Nikola Tesla's Teleautomaton (1898): Remote-controlled boat demonstrating wireless control\n\nFirst Generation Humanoids (1960s-1980s):\n- WABOT-1 (1973, Japan): World's first full-scale humanoid robot, could walk and communicate\n- WABOT-2 (1984): Could play music on an electronic organ\n\nModern Era (1990s-2010s):\n- Honda's P Series (1993-1997): Led to the famous ASIMO robot\n- ASIMO (2000): Could walk, run, climb stairs, recognize faces\n- Sony's QRIO (2003): Small humanoid that could walk, dance, and play soccer\n\nCurrent Generation (2010s-Present):\n- Boston Dynamics' Atlas (2013): Known for dynamic movements and parkour\n- SoftBank's Pepper (2014): Designed for human interaction\n- Tesla's Optimus (2022): General-purpose humanoid for everyday tasks\n- Figure 01 (2023): Commercial applications with advanced AI\n- Agility Robotics' Digit: Built for logistics and warehouse operations",
-          "tags": ["history", "evolution", "timeline", "WABOT", "ASIMO", "Atlas", "Tesla Optimus"],
-          "metadata": {"chapter": "Week 1", "section": 2, "keyConcepts": ["Historical Development", "Generational Progress", "Modern Humanoids"]}
+          "title": "From Digital AI to Robots that Understand Physical Laws",
+          "content": "Traditional AI has largely focused on abstract reasoning, pattern recognition in datasets, and game playing, often within simulated or digital environments. While powerful, these systems often lack an intuitive understanding of physics, common sense, or the complexities of real-world interaction.\n\nPhysical AI, in contrast, grapples with:\n1. Uncertainty and Noise: Real-world sensor data is always noisy and incomplete, requiring robust perception and inference mechanisms.\n2. Dynamics and Control: Robots must contend with gravity, friction, momentum, and other physical forces, demanding sophisticated control algorithms.\n3. Interaction with Unstructured Environments: Unlike factory settings, everyday environments are unpredictable and require adaptable behaviors.",
+          "tags": ["digital AI", "physical AI", "robotics", "uncertainty", "dynamics"],
+          "metadata": {"chapter": "Week 1", "section": 2, "keyConcepts": ["Digital vs Physical AI", "Uncertainty", "Dynamics"]}
         },
         {
           "id": "week-1-section-3",
-          "title": "Key Components of a Humanoid Robot",
-          "content": "A humanoid robot consists of several integrated systems:\n\n1. Mechanical Structure:\n- Frame/Chassis: Skeleton made from aluminum, carbon fiber, or titanium\n- Joints: Articulated connections (revolute, prismatic, spherical)\n- Links: Rigid segments connecting joints\n- Degrees of Freedom (DOF): Independent movements possible (human arm: 7 DOF, leg: 6 DOF)\n\n2. Actuation Systems:\n- Electric Motors: DC motors, stepper motors, servo motors\n- Hydraulic Actuators: High force output (used in Atlas)\n- Pneumatic Actuators: Compressed air, offering compliance\n- Artificial Muscles: Emerging technology\n\n3. Sensing Systems:\n- Vision: Cameras (RGB, depth, stereo)\n- IMU: Accelerometers and gyroscopes for balance\n- Force/Torque Sensors: Measure interaction forces\n- Tactile Sensors: Touch feedback in hands and feet\n- LiDAR: 3D environment mapping\n\n4. Control Systems:\n- Microcontrollers: Low-level motor control\n- Embedded Computers: Higher-level processing (NVIDIA Jetson, Raspberry Pi)\n- Real-time Operating Systems: Timely response for critical tasks\n\n5. Power Systems:\n- Batteries: Lithium-ion or lithium-polymer\n- Power Management: Distribution and regulation\n\n6. Software Architecture:\n- Low-level: Motor drivers, sensor interfaces\n- Mid-level: Gait generation, balance control\n- High-level: AI, decision-making, human-robot interaction",
-          "tags": ["components", "mechanics", "sensors", "actuators", "control systems", "hardware"],
-          "metadata": {"chapter": "Week 1", "section": 3, "keyConcepts": ["Mechanical Structure", "Actuation", "Sensing", "Control", "Power"]}
+          "title": "Overview of Humanoid Robotics Landscape",
+          "content": "Humanoid robots are designed to mimic the human form, offering a unique set of advantages and challenges. Their bipedal locomotion, articulated limbs, and human-like sensor placement allow them to navigate and interact with environments designed for humans more naturally.\n\nCurrent trends in humanoid robotics include:\n1. Advanced Locomotion: Developing dynamic walking and running gaits, balance recovery, and stair climbing.\n2. Dexterous Manipulation: Creating hands and arms capable of fine motor skills for tasks like grasping fragile objects or using human tools.\n3. Human-Robot Interaction (HRI): Designing robots that can understand and respond to human social cues, gestures, and language.\n4. Sim-to-Real Transfer: Bridging the gap between behaviors learned in high-fidelity simulations and their successful deployment on physical hardware.",
+          "tags": ["humanoid robots", "locomotion", "manipulation", "HRI", "sim-to-real"],
+          "metadata": {"chapter": "Week 1", "section": 3, "keyConcepts": ["Humanoid Design", "Current Trends", "Applications"]}
         },
         {
           "id": "week-1-section-4",
-          "title": "Introduction to Physical AI",
-          "content": "Physical AI refers to AI systems that interact with and operate in the physical world through embodied agents like robots.\n\nKey Aspects:\n\n1. Embodiment: Physical AI requires a body to interact with the world. The body's physical properties constrain and enable what the AI can do.\n\n2. Perception-Action Loop:\n- Sense: Gather data from environment through sensors\n- Perceive: Process and interpret sensory data\n- Reason: Make decisions based on perception and goals\n- Act: Execute actions through actuators\n- Learn: Update models based on outcomes\n\n3. Real-World Constraints:\n- Physics: Must obey laws of physics (gravity, friction, momentum)\n- Uncertainty: Sensor noise, actuator imprecision\n- Real-time: Must respond within time constraints\n- Safety: Must avoid harming humans or damaging property\n\n4. Key Challenges:\n- Sim-to-Real Gap: Transferring skills from simulation to real robots\n- Sample Efficiency: Learning from limited real-world interactions\n- Generalization: Adapting to new environments and tasks\n\n5. Applications:\n- Robotic Manipulation: Grasping and moving objects\n- Locomotion: Walking, running, navigating terrain\n- Human-Robot Interaction: Social robots, collaborative robots\n- Autonomous Vehicles: Self-driving cars, drones",
-          "tags": ["Physical AI", "embodiment", "perception-action", "robotics AI", "autonomous systems"],
-          "metadata": {"chapter": "Week 1", "section": 4, "keyConcepts": ["Embodiment", "Perception-Action Loop", "Real-World Constraints", "Challenges"]}
+          "title": "Sensor Systems: LiDAR, Cameras, IMUs, Force/Torque Sensors",
+          "content": "For humanoid robots to perceive and interact with their environment, they rely on a diverse suite of sensors:\n\n1. LiDAR (Light Detection and Ranging): Emits pulsed laser light to measure distances to objects. Used for mapping environments, obstacle detection, and navigation. Provides accurate depth information, often creating 3D point clouds.\n\n2. Cameras (RGB, Depth, Stereo):\n   - RGB Cameras: Provide color images, crucial for object recognition, visual tracking, and human-robot interaction.\n   - Depth Cameras: Use structured light or time-of-flight to provide per-pixel depth information.\n   - Stereo Cameras: Mimic human vision, using two cameras to calculate depth through parallax.\n\n3. IMUs (Inertial Measurement Units): Combine accelerometers, gyroscopes, and magnetometers to measure orientation, angular velocity, and linear acceleration. Essential for balance control.\n\n4. Force/Torque Sensors: Mounted at joints or end-effectors to measure contact forces and torques. Critical for compliant control and delicate manipulation tasks.",
+          "tags": ["sensors", "LiDAR", "cameras", "IMU", "force sensors", "perception"],
+          "metadata": {"chapter": "Week 1", "section": 4, "keyConcepts": ["Sensor Types", "Perception Systems", "Sensor Fusion"]}
         }
       ]
     },
     {
       "id": "week-2",
-      "title": "Robot Kinematics and Motion",
+      "title": "Deep Dive into Embodied Intelligence",
       "order": 2,
       "difficulty": "Intermediate",
       "sections": [
         {
           "id": "week-2-section-1",
-          "title": "Introduction to Kinematics",
-          "content": "Kinematics is the study of motion without considering the forces that cause it. In robotics, kinematics describes the relationship between joint positions and end-effector position/orientation.\n\nFundamental Concepts:\n\n1. Position and Orientation:\n- Position: Where a point is located (x, y, z coordinates)\n- Orientation: How an object is rotated (roll, pitch, yaw or quaternions)\n- Pose: Combined position and orientation\n\n2. Coordinate Frames:\n- World Frame: Fixed reference for the entire system\n- Base Frame: Attached to robot's base\n- Joint Frames: Attached to each joint\n- End-Effector Frame: Attached to robot's hand or tool\n\n3. Degrees of Freedom (DOF):\n- Each joint adds one or more DOF\n- Human arm: 7 DOF (3 shoulder, 1 elbow, 3 wrist)\n- Human leg: 6 DOF (3 hip, 1 knee, 2 ankle)\n- Minimum 6 DOF needed to position end-effector anywhere in 3D space\n\n4. Joint Types:\n- Revolute Joint: Rotational movement (most common)\n- Prismatic Joint: Linear sliding movement\n- Spherical Joint: Rotation in multiple axes\n\n5. Workspace: The volume of space the end-effector can reach",
-          "tags": ["kinematics", "motion", "DOF", "coordinate frames", "joint types"],
-          "metadata": {"chapter": "Week 2", "section": 1, "keyConcepts": ["Position/Orientation", "Coordinate Frames", "DOF", "Workspace"]}
+          "title": "The Role of Embodiment in Intelligence",
+          "content": "Embodied intelligence posits that intelligent behavior is not solely a product of abstract thought but arises from the dynamic interaction between an agent's brain, body, and environment.\n\nKey aspects of embodiment include:\n1. Morphological Computing: The idea that the physical structure of a robot can inherently simplify control or perceptual tasks.\n2. Sensorimotor Coupling: The continuous loop between sensing the environment and acting upon it.\n3. Situatedness: The concept that intelligent agents are always embedded in a specific physical and social context.\n4. Experience and Learning: Physical interaction generates rich sensory data that can be used for learning.",
+          "tags": ["embodiment", "morphological computing", "sensorimotor", "situatedness"],
+          "metadata": {"chapter": "Week 2", "section": 1, "keyConcepts": ["Embodied Cognition", "Morphological Computing"]}
         },
         {
           "id": "week-2-section-2",
-          "title": "Forward Kinematics",
-          "content": "Forward kinematics answers: 'Given the joint angles, where is the end-effector?'\n\nDefinition: Forward kinematics calculates the position and orientation of the end-effector from known joint angles and link parameters.\n\nMathematical Foundation:\n\n1. Denavit-Hartenberg (DH) Parameters - Four parameters per joint:\n- a (link length): Distance between joint axes\n- α (link twist): Angle between joint axes\n- d (link offset): Distance along previous z-axis\n- θ (joint angle): Rotation about previous z-axis\n\n2. Transformation Matrices:\nEach joint is represented by a 4x4 homogeneous transformation matrix:\nT = | R  p |\n    | 0  1 |\nWhere R is rotation matrix and p is position vector.\n\n3. Chain Rule:\nFor a robot with n joints: T_total = T1 × T2 × T3 × ... × Tn\n\nExample - 2-Link Planar Arm:\nGiven link lengths L1, L2 and angles θ1, θ2:\nx = L1×cos(θ1) + L2×cos(θ1+θ2)\ny = L1×sin(θ1) + L2×sin(θ1+θ2)\n\nForward kinematics is computationally straightforward with a unique solution. Used for verification, simulation, trajectory planning, and collision detection.",
-          "tags": ["forward kinematics", "DH parameters", "transformation matrices", "mathematics"],
-          "metadata": {"chapter": "Week 2", "section": 2, "keyConcepts": ["DH Parameters", "Transformation Matrices", "Chain Rule"]}
+          "title": "Challenges in Physical AI",
+          "content": "Deploying AI in physical robots introduces significant challenges:\n\n1. Real-time Performance and Latency: Robots operate in real-time, demanding low-latency processing. Millisecond-level response times are critical for dynamic tasks.\n\n2. Sensor Noise and Uncertainty: Physical sensors are inherently noisy. Robust perception systems must fuse noisy data and estimate uncertainty.\n\n3. Actuator Limitations and Control Errors: Robot actuators have limited precision, speed, and force. Advanced control strategies are needed.\n\n4. Sim-to-Real Gap: Behaviors learned in simulation often don't transfer perfectly to the real world.\n\n5. Energy Constraints: Physical robots rely on batteries, imposing strict power limits.\n\n6. Safety and Reliability: Physical robots interact with humans, making safety paramount.",
+          "tags": ["challenges", "real-time", "uncertainty", "sim-to-real", "safety"],
+          "metadata": {"chapter": "Week 2", "section": 2, "keyConcepts": ["Physical Constraints", "Safety", "Real-time Systems"]}
+        }
+      ]
+    },
+    {
+      "id": "week-3",
+      "title": "ROS 2 Fundamentals",
+      "order": 3,
+      "difficulty": "Intermediate",
+      "sections": [
+        {
+          "id": "week-3-section-1",
+          "title": "ROS 2 Architecture and Core Concepts",
+          "content": "ROS 2 (Robot Operating System 2) is a flexible framework for writing robot software. It provides tools, libraries, and conventions for creating complex and robust robot applications.\n\nCore Concepts:\n1. Nodes: Executable processes that perform specific tasks. Nodes are modular and reusable.\n2. Topics: Asynchronous publish-subscribe communication for streaming data.\n3. Services: Synchronous request-reply communication for operations with clear start and end.\n4. Actions: Long-running tasks with periodic feedback and preemption capability.\n5. Parameters: Runtime configuration for nodes.\n\nROS 2 uses DDS (Data Distribution Service) for communication, providing real-time performance and reliability.",
+          "tags": ["ROS 2", "nodes", "topics", "services", "actions", "middleware"],
+          "metadata": {"chapter": "Week 3", "section": 1, "keyConcepts": ["ROS 2 Architecture", "Communication Patterns"]}
         },
         {
-          "id": "week-2-section-3",
-          "title": "Inverse Kinematics",
-          "content": "Inverse kinematics answers: 'Given desired end-effector position, what should the joint angles be?'\n\nWhy IK is Important:\n- Task-level programming: Specify where to move, not how\n- Path planning: Generate joint trajectories\n- Human-robot interaction: Move to positions indicated by humans\n\nChallenges:\n1. Multiple Solutions: Single pose may have multiple joint configurations\n2. No Solution: Some positions may be unreachable (outside workspace)\n3. Singularities: Configurations where robot loses degrees of freedom\n4. Computational Complexity: More complex than forward kinematics\n\nSolution Methods:\n\n1. Analytical (Closed-Form):\n- Exact mathematical formulas\n- Fast computation\n- Only for certain robot geometries\n\n2. Numerical (Iterative):\n- Use optimization algorithms\n- Work for any geometry\n- Slower but more general\n- Methods: Newton-Raphson, Jacobian-based\n\n3. Geometric Methods:\n- Use trigonometry and geometry\n- Intuitive for simple robots\n\nJacobian Matrix relates joint velocities to end-effector velocities:\nv = J × q̇\n\nIK is essential for practical robot control.",
-          "tags": ["inverse kinematics", "IK", "Jacobian", "singularities", "motion planning"],
-          "metadata": {"chapter": "Week 2", "section": 3, "keyConcepts": ["IK Problem", "Multiple Solutions", "Analytical vs Numerical", "Jacobian"]}
+          "id": "week-3-section-2",
+          "title": "Bridging Python Agents to ROS Controllers using rclpy",
+          "content": "rclpy is the Python client library for ROS 2, providing an idiomatic Python interface to all ROS 2 core functionalities.\n\nKey aspects:\n1. Minimal API: Lightweight and efficient, exposing necessary ROS 2 primitives.\n2. Asynchronous Programming: Integrates with Python's asyncio for non-blocking operations.\n3. Message Generation: Automatically generates Python classes from .msg and .srv files.\n\nExample use cases:\n- Subscribe to sensor data (camera images, LiDAR scans)\n- Publish command messages (motor velocities, joint positions)\n- Call services to trigger behaviors\n- Interact with action servers for navigation tasks",
+          "tags": ["rclpy", "Python", "ROS 2", "programming", "integration"],
+          "metadata": {"chapter": "Week 3", "section": 2, "keyConcepts": ["rclpy", "Python Integration", "Async Programming"]}
         },
         {
-          "id": "week-2-section-4",
-          "title": "Bipedal Locomotion and ZMP",
-          "content": "Bipedal locomotion is the ability to walk on two legs - a defining characteristic of humanoid robots. The Zero Moment Point (ZMP) is the key concept for stable bipedal walking.\n\nZero Moment Point (ZMP):\nThe ZMP is the point where the net moment of inertial and gravitational forces is zero. For stable walking, the ZMP must stay within the support polygon (the area under the feet).\n\nKey Concepts:\n\n1. Zero Moment Point (ZMP): Point where net moment of inertial and gravitational forces is zero; must stay within support polygon for stability; widely used for gait generation and balance control.\n\n2. Center of Mass (CoM): Average position of all mass in the robot body; must be controlled to maintain balance; often simplified as an inverted pendulum model.\n\n3. Support Polygon: The convex hull of all foot contact points with the ground; ZMP must remain inside this area for stable walking.\n\n4. Capture Point: Point where the robot can step to come to a complete stop; used for reactive balance control and push recovery.\n\nWalking Patterns:\n- Static Walking: CoM always over support polygon (slow but very stable)\n- Dynamic Walking: CoM can be outside support polygon (faster and more natural)\n- Running: Includes flight phase with no ground contact",
-          "tags": ["bipedal", "walking", "ZMP", "gait", "balance", "locomotion", "CoM", "support polygon"],
-          "metadata": {"chapter": "Week 2", "section": 4, "keyConcepts": ["ZMP", "CoM", "Gait Cycle", "Balance Control", "Support Polygon"]}
+          "id": "week-3-section-3",
+          "title": "Understanding URDF for Humanoids",
+          "content": "URDF (Unified Robot Description Format) is an XML format used in ROS to describe all elements of a robot.\n\nKey elements:\n1. Links: Rigid bodies of the robot (torso, arms, hands) with visual, inertial, and collision properties.\n2. Joints: Connections between links, specifying type (revolute, prismatic, fixed), axis, limits, and dynamics.\n3. Kinematics: Defines the robot's kinematic chain for forward and inverse kinematics.\n\nFor humanoid robots, accurate URDF is essential for:\n- Visualization in RViz\n- Simulation in Gazebo\n- Motion planning\n- Control system design",
+          "tags": ["URDF", "robot model", "kinematics", "ROS", "humanoid"],
+          "metadata": {"chapter": "Week 3", "section": 3, "keyConcepts": ["URDF", "Robot Modeling", "Kinematics"]}
+        }
+      ]
+    },
+    {
+      "id": "week-4",
+      "title": "ROS 2 Advanced Topics",
+      "order": 4,
+      "difficulty": "Intermediate",
+      "sections": [
+        {
+          "id": "week-4-section-1",
+          "title": "Quality of Service (QoS) Policies",
+          "content": "QoS settings configure reliability, latency, and longevity of communication between nodes.\n\nKey QoS policies:\n1. History: KEEP_LAST (N most recent) or KEEP_ALL samples\n2. Depth: Number of samples to keep with KEEP_LAST\n3. Reliability: BEST_EFFORT (may drop) or RELIABLE (guaranteed delivery)\n4. Durability: VOLATILE (current subscribers only) or TRANSIENT_LOCAL (retained for late joiners)\n5. Liveliness: How middleware determines if publisher is active\n\nUse cases:\n- Sensor data: BEST_EFFORT, VOLATILE for low latency\n- Critical commands: RELIABLE, TRANSIENT_LOCAL for guaranteed delivery\n- Map data: RELIABLE, TRANSIENT_LOCAL for late-joining subscribers",
+          "tags": ["QoS", "reliability", "performance", "DDS", "communication"],
+          "metadata": {"chapter": "Week 4", "section": 1, "keyConcepts": ["QoS Policies", "Reliability", "Performance"]}
+        },
+        {
+          "id": "week-4-section-2",
+          "title": "Building ROS 2 Packages with Python",
+          "content": "ROS 2 packages are the fundamental unit of organization for ROS 2 code.\n\nSteps to create a Python package:\n1. Create Package: ros2 pkg create --build-type ament_python my_package\n2. Define Entry Points in setup.py\n3. Implement Node Logic using rclpy\n4. Build: colcon build --packages-select my_package\n5. Source and Run: source install/setup.bash && ros2 run my_package my_node\n\nBest practices:\n- Single responsibility per node\n- Clear communication interfaces\n- Parameterization for flexibility\n- Comprehensive error handling",
+          "tags": ["packages", "Python", "colcon", "development", "ROS 2"],
+          "metadata": {"chapter": "Week 4", "section": 2, "keyConcepts": ["Package Development", "Python Nodes", "Best Practices"]}
+        },
+        {
+          "id": "week-4-section-3",
+          "title": "Launch Files and Parameter Management",
+          "content": "Launch files start and configure multiple ROS 2 nodes simultaneously.\n\nPython Launch Files provide flexibility:\n```python\nfrom launch import LaunchDescription\nfrom launch_ros.actions import Node\n\ndef generate_launch_description():\n    return LaunchDescription([\n        Node(\n            package='my_package',\n            executable='my_node',\n            parameters=[{'param_name': 'value'}]\n        )\n    ])\n```\n\nParameter Management:\n- Declaration within nodes\n- Configuration via launch files or YAML\n- Dynamic runtime adjustment with ros2 param set/get\n- Essential for deploying to different environments without recompilation",
+          "tags": ["launch files", "parameters", "configuration", "deployment"],
+          "metadata": {"chapter": "Week 4", "section": 3, "keyConcepts": ["Launch System", "Parameters", "Configuration"]}
+        }
+      ]
+    },
+    {
+      "id": "week-5",
+      "title": "ROS 2 Tools and Best Practices",
+      "order": 5,
+      "difficulty": "Intermediate",
+      "sections": [
+        {
+          "id": "week-5-section-1",
+          "title": "Advanced ROS 2 Tools for Introspection",
+          "content": "ROS 2 provides rich command-line tools for monitoring and debugging:\n\n1. ros2 topic: List, info, echo, hz, pub commands for topics\n2. ros2 node: List and inspect active nodes\n3. ros2 service: List, info, call services\n4. ros2 param: Get/set node parameters at runtime\n5. rqt tools: Graph visualization, console logging, plotting\n6. rviz2: 3D visualization for sensor data and robot models\n\nThese tools are indispensable for developing and troubleshooting complex robotic applications.",
+          "tags": ["debugging", "tools", "introspection", "rqt", "rviz"],
+          "metadata": {"chapter": "Week 5", "section": 1, "keyConcepts": ["Debugging Tools", "System Monitoring"]}
+        },
+        {
+          "id": "week-5-section-2",
+          "title": "Best Practices for ROS 2 Development",
+          "content": "Adhering to best practices ensures scalable, maintainable applications:\n\n1. Modularity: Each node should have single responsibility\n2. Clear Interfaces: Well-defined message types and naming conventions\n3. Parameterization: Make nodes configurable without recompilation\n4. Error Handling: Implement robust try-except blocks and logging\n5. Asynchronous Programming: Use asyncio for non-blocking operations\n6. Testing: Unit tests, integration tests, system tests\n7. Documentation: README files, inline comments, API documentation\n\nDevelopment workflow: Design → Implement → Build → Run → Debug → Iterate",
+          "tags": ["best practices", "development", "testing", "documentation"],
+          "metadata": {"chapter": "Week 5", "section": 2, "keyConcepts": ["Software Engineering", "Code Quality", "Testing"]}
+        }
+      ]
+    },
+    {
+      "id": "week-6",
+      "title": "Robot Simulation with Gazebo",
+      "order": 6,
+      "difficulty": "Intermediate",
+      "sections": [
+        {
+          "id": "week-6-section-1",
+          "title": "Gazebo Simulation Environment Setup",
+          "content": "Gazebo is a powerful 3D robotics simulator for testing algorithms and designing robots.\n\nKey components:\n1. World Files (.world): Define simulation scenes with terrains, buildings, obstacles\n2. Model Files (.sdf/.urdf): Describe robots and objects\n3. Plugins: Extend functionality with custom sensors and controllers\n4. ROS 2 Bridge: gazebo_ros_pkgs for ROS 2 integration\n\nCurrent versions:\n- Gazebo Harmonic (LTS): Recommended for production\n- Gazebo Jetty (Latest): Cutting-edge features\n- Newton Physics (Beta): GPU-accelerated physics engine",
+          "tags": ["Gazebo", "simulation", "physics", "ROS 2", "digital twin"],
+          "metadata": {"chapter": "Week 6", "section": 1, "keyConcepts": ["Simulation Setup", "Gazebo Architecture"]}
+        },
+        {
+          "id": "week-6-section-2",
+          "title": "URDF and SDF Robot Description Formats",
+          "content": "URDF and SDF are XML formats for describing robots:\n\nURDF (Unified Robot Description Format):\n- Designed for ROS ecosystem\n- Good for kinematics, dynamics, visualization\n- Limited to single robot descriptions\n\nSDF (Simulation Description Format):\n- Gazebo's native format\n- Describes entire worlds with multiple robots\n- Supports complex physics properties\n- More powerful for simulation\n\nURDF can be converted to SDF for Gazebo simulation. XACRO (XML Macros) enables modular, parameterized descriptions.",
+          "tags": ["URDF", "SDF", "robot modeling", "XACRO", "simulation"],
+          "metadata": {"chapter": "Week 6", "section": 2, "keyConcepts": ["URDF vs SDF", "Robot Descriptions"]}
+        },
+        {
+          "id": "week-6-section-3",
+          "title": "Physics and Sensor Simulation",
+          "content": "Gazebo's core strength is realistic physics and sensor simulation:\n\nPhysics Engines:\n- ODE: Fast, stable, general robotics\n- Bullet: Complex collisions, soft bodies\n- DART: High accuracy, research\n- Newton (New): GPU-accelerated, ML-ready\n\nSensor Simulation:\n- LiDAR: Point clouds with configurable noise\n- Cameras: RGB, depth, stereo with GPU rendering\n- IMUs: Accelerometers, gyroscopes with realistic noise\n- Force/Torque: Contact force measurement\n- Advanced: Event cameras, thermal, radar, tactile sensors",
+          "tags": ["physics", "sensors", "simulation", "LiDAR", "cameras"],
+          "metadata": {"chapter": "Week 6", "section": 3, "keyConcepts": ["Physics Engines", "Sensor Models"]}
+        }
+      ]
+    },
+    {
+      "id": "week-7",
+      "title": "Advanced Gazebo Simulation",
+      "order": 7,
+      "difficulty": "Advanced",
+      "sections": [
+        {
+          "id": "week-7-section-1",
+          "title": "Gazebo Plugins and ROS 2 Integration",
+          "content": "Plugins extend Gazebo functionality:\n\nTypes of Plugins:\n1. World Plugins: Modify simulation environment\n2. Model Plugins: Attach to specific robots\n3. Sensor Plugins: Custom sensor data generation\n4. ROS 2 Plugins: Bridge to ROS 2 ecosystem\n\nROS 2 Control Plugins:\n- libgazebo_ros_diff_drive.so: Differential drive control\n- libgazebo_ros_joint_state_publisher.so: Joint state feedback\n- libgazebo_ros_camera.so: Camera with ROS 2 topics\n- libgazebo_ros_imu_sensor.so: IMU simulation\n\nProgrammatic Control:\n- ros2 service calls for model state manipulation\n- Pause/unpause physics\n- Reset simulation",
+          "tags": ["plugins", "ROS 2", "integration", "control", "sensors"],
+          "metadata": {"chapter": "Week 7", "section": 1, "keyConcepts": ["Plugins", "ROS 2 Integration"]}
+        },
+        {
+          "id": "week-7-section-2",
+          "title": "Advanced Sensor Configuration",
+          "content": "Realistic sensor simulation requires careful configuration:\n\nNoise Modeling:\n- Gaussian Noise: Random values from normal distribution\n- Bias: Consistent offset in readings\n- Drift: Slow changes over time\n- Outliers: Sporadic erroneous readings\n\nConfiguration Example (IMU in SDF):\n```xml\n<sensor name=\"imu_sensor\" type=\"imu\">\n  <imu>\n    <angular_velocity>\n      <noise type=\"gaussian\">\n        <mean>0.0</mean>\n        <stddev>0.0002</stddev>\n      </noise>\n    </angular_velocity>\n  </imu>\n</sensor>\n```\n\nLatency and Data Rates: Configure update rates to match physical hardware specifications.",
+          "tags": ["sensors", "noise", "calibration", "configuration"],
+          "metadata": {"chapter": "Week 7", "section": 2, "keyConcepts": ["Sensor Noise", "Calibration"]}
+        }
+      ]
+    },
+    {
+      "id": "week-8",
+      "title": "NVIDIA Isaac Platform",
+      "order": 8,
+      "difficulty": "Advanced",
+      "sections": [
+        {
+          "id": "week-8-section-1",
+          "title": "NVIDIA Isaac SDK and Isaac Sim",
+          "content": "NVIDIA Isaac Platform accelerates AI-powered robot development:\n\nIsaac SDK:\n- Hardware-accelerated libraries for perception and manipulation\n- CUDA and TensorRT optimization\n- ROS 2 integration\n- Isaac ROS GEMs: Pre-built pipelines for VSLAM, object detection\n\nIsaac Sim (2025 - Open Source):\n- Built on NVIDIA Omniverse with USD format\n- Photorealistic rendering with ray tracing\n- 1,000+ SimReady assets (humanoids, manipulators, AMRs)\n- Newton Physics: GPU-accelerated (Google DeepMind/Disney Research)\n- Synthetic data generation with auto-labeling\n- Multi-GPU scaling for massive parallelism",
+          "tags": ["NVIDIA Isaac", "Isaac Sim", "simulation", "synthetic data", "Omniverse"],
+          "metadata": {"chapter": "Week 8", "section": 1, "keyConcepts": ["Isaac Platform", "Photorealistic Simulation"]}
+        },
+        {
+          "id": "week-8-section-2",
+          "title": "AI-Powered Perception and Manipulation",
+          "content": "Isaac provides advanced AI capabilities:\n\nPerception (2025):\n- Foundation Models: Cosmos, GR00T N1.5 for robotics\n- Hardware-Accelerated Pipelines:\n  - Object Detection: YOLOv10-TensorRT (3ms)\n  - Semantic Segmentation: DeepLabV3+ (8ms)\n  - 6D Pose Estimation: FoundationPose (15ms)\n  - Visual SLAM: Isaac ROS VSLAM (5ms)\n\nManipulation:\n- Diffusion Policy: Smooth, human-like trajectories\n- Imitation Learning: From human demonstrations\n- Sim-to-Real Transfer: 95% success rate\n- Dexterous Benchmarks: 98% in-hand reorientation",
+          "tags": ["perception", "manipulation", "AI", "deep learning", "foundation models"],
+          "metadata": {"chapter": "Week 8", "section": 2, "keyConcepts": ["AI Perception", "Learning-Based Manipulation"]}
+        },
+        {
+          "id": "week-8-section-3",
+          "title": "Isaac Lab for Reinforcement Learning",
+          "content": "Isaac Lab is the unified framework for robot learning:\n\nKey Features:\n- MuJoCo Playground compatibility\n- 10,000+ parallel environments with multi-GPU\n- Pre-built RL algorithms: PPO, SAC, TD3, DDPG\n- Domain randomization for sim-to-real\n- Curriculum learning\n\nTraining Example:\n```python\nfrom isaaclab.runners import RLRunner\nenv = HumanoidLocomotionEnv(num_envs=4096)\nrunner = RLRunner(algorithm='PPO')\nrunner.train(env, num_iterations=50000)\nrunner.export_policy('policy.onnx')\n```\n\nSuccess Stories:\n- Unitree H1: Backflip learned in sim, deployed to hardware\n- 1X NEO: Household chores trained entirely in Isaac Sim",
+          "tags": ["Isaac Lab", "reinforcement learning", "RL", "training", "sim-to-real"],
+          "metadata": {"chapter": "Week 8", "section": 3, "keyConcepts": ["RL Framework", "Massive Parallelism"]}
+        }
+      ]
+    },
+    {
+      "id": "week-9",
+      "title": "Isaac ROS and Navigation",
+      "order": 9,
+      "difficulty": "Advanced",
+      "sections": [
+        {
+          "id": "week-9-section-1",
+          "title": "Isaac ROS: Hardware-Accelerated VSLAM",
+          "content": "Isaac ROS provides GPU-optimized perception for Jetson platforms:\n\nVisual SLAM Components:\n1. Stereo Depth Estimation: Dense depth maps from multiple cameras\n2. Visual Odometry: Robot motion from camera features\n3. Graph SLAM: Globally consistent maps with loop closure\n4. Hardware Acceleration: Real-time performance on Jetson Orin\n\nKey Packages:\n- isaac_ros_stereo_image_proc: GPU stereo processing\n- isaac_ros_visual_slam: Full VSLAM pipeline\n- isaac_ros_image_pipeline: Accelerated image processing\n\nEssential for humanoid navigation, mapping, and localization in complex environments.",
+          "tags": ["Isaac ROS", "VSLAM", "localization", "mapping", "Jetson"],
+          "metadata": {"chapter": "Week 9", "section": 1, "keyConcepts": ["VSLAM", "Hardware Acceleration"]}
+        },
+        {
+          "id": "week-9-section-2",
+          "title": "Nav2 for Bipedal Humanoid Navigation",
+          "content": "Nav2 is the ROS 2 navigation stack adapted for humanoids:\n\nNav2 Components:\n1. amcl: Particle filter localization\n2. Costmaps: 2D grids with obstacle information\n3. Global Planner: A*, Dijkstra, RRT for long-range paths\n4. Local Planner: DWB, TEB for obstacle avoidance\n5. Behavior Tree Navigator: Orchestrates navigation flow\n\nHumanoid Considerations:\n- Non-holonomic movement constraints\n- Stability and ZMP maintenance\n- 3D terrain negotiation\n- Custom footstep planners\n- Slower, deliberate motion patterns",
+          "tags": ["Nav2", "navigation", "path planning", "bipedal", "humanoid"],
+          "metadata": {"chapter": "Week 9", "section": 2, "keyConcepts": ["Nav2 Stack", "Bipedal Navigation"]}
+        }
+      ]
+    },
+    {
+      "id": "week-10",
+      "title": "Sim-to-Real Transfer",
+      "order": 10,
+      "difficulty": "Advanced",
+      "sections": [
+        {
+          "id": "week-10-section-1",
+          "title": "Sim-to-Real Transfer Techniques",
+          "content": "Bridging the simulation-to-reality gap is critical for deployment:\n\n1. Domain Randomization (DR):\n   - Vary textures, lighting, physics parameters in simulation\n   - Policy learns robustness to variations\n   - Real world becomes just another variation\n\n2. System Identification:\n   - Measure physical robot properties (friction, inertia)\n   - Update simulation model for accuracy\n   - Reduces manual parameter tuning\n\n3. Progressive Realism:\n   - Start with simplified simulation\n   - Gradually add complexity as policy improves\n   - Curriculum learning approach\n\n4. Transfer Learning:\n   - Pre-train extensively in simulation\n   - Fine-tune with limited real-world data\n   - Reduces real-world training time",
+          "tags": ["sim-to-real", "domain randomization", "transfer learning", "deployment"],
+          "metadata": {"chapter": "Week 10", "section": 1, "keyConcepts": ["Sim-to-Real Gap", "Domain Randomization"]}
+        },
+        {
+          "id": "week-10-section-2",
+          "title": "RL Integration for Robust Control",
+          "content": "Reinforcement Learning workflow with Isaac Sim:\n\n1. Define Environment: States, actions, rewards\n2. Define Policy: Choose RL algorithm (PPO, SAC)\n3. Train in Simulation: Massive parallelism with DR\n4. Evaluate: Test in simulation\n5. Deploy: Export to edge device (Jetson)\n6. Fine-tune: Optional real-world adaptation\n\nChallenges:\n- Reward shaping for complex behaviors\n- Exploration vs. exploitation balance\n- Safety in real-world deployment\n- Computational cost of training\n\nTraining Times (4096 environments):\n- Walking: 30 minutes (95% success)\n- Stair Climbing: 2 hours (88% success)\n- Object Grasping: 1 hour (92% success)",
+          "tags": ["RL", "reinforcement learning", "control", "training", "deployment"],
+          "metadata": {"chapter": "Week 10", "section": 2, "keyConcepts": ["RL Workflow", "Policy Training"]}
+        }
+      ]
+    },
+    {
+      "id": "week-11",
+      "title": "Humanoid Kinematics and Dynamics",
+      "order": 11,
+      "difficulty": "Advanced",
+      "sections": [
+        {
+          "id": "week-11-section-1",
+          "title": "Humanoid Robot Kinematics",
+          "content": "Kinematics describes motion without considering forces:\n\nForward Kinematics:\n- Given joint angles, calculate end-effector pose\n- Straightforward computation with unique solution\n- Used for verification and simulation\n\nInverse Kinematics (IK):\n- Given desired pose, find joint angles\n- Multiple solutions possible\n- Challenges: singularities, computational complexity\n- Methods: analytical, numerical, geometric\n\nDegrees of Freedom (DOF):\n- Human arm: 7 DOF (3 shoulder, 1 elbow, 3 wrist)\n- Human leg: 6 DOF (3 hip, 1 knee, 2 ankle)\n- Humanoid robots: 20-30+ total DOF\n\nEssential for foot placement, reaching, whole-body control.",
+          "tags": ["kinematics", "forward kinematics", "inverse kinematics", "DOF", "IK"],
+          "metadata": {"chapter": "Week 11", "section": 1, "keyConcepts": ["Kinematics", "IK Solutions"]}
+        },
+        {
+          "id": "week-11-section-2",
+          "title": "Bipedal Locomotion and Balance Control",
+          "content": "Bipedal walking is inherently unstable:\n\nLocomotion Strategies:\n1. Static Walking: CoM always over support polygon (slow, stable)\n2. Dynamic Walking: CoM can exceed support polygon (fast, natural)\n3. Gait Generators: Joint trajectories for walking patterns\n\nBalance Control:\n1. ZMP Control: Keep Zero Moment Point within support polygon\n2. Full-Body Control: Coordinate all joints while maintaining balance\n3. Passive Dynamics: Leverage mechanical design for stability\n\nSensory Feedback:\n- IMU: Orientation and angular velocity\n- Force/Torque: Ground reaction forces for ZMP calculation\n- Vision: Terrain anticipation\n\nActuators: High-torque servos, SEAs for compliance, backdrivability",
+          "tags": ["bipedal", "locomotion", "balance", "ZMP", "gait", "walking"],
+          "metadata": {"chapter": "Week 11", "section": 2, "keyConcepts": ["Bipedal Walking", "ZMP Control", "Balance"]}
+        }
+      ]
+    },
+    {
+      "id": "week-12",
+      "title": "Manipulation and Human-Robot Interaction",
+      "order": 12,
+      "difficulty": "Advanced",
+      "sections": [
+        {
+          "id": "week-12-section-1",
+          "title": "Dexterous Manipulation and Grasping",
+          "content": "Humanoid manipulation requires dexterous hands:\n\nDexterous Manipulation:\n- High DoF hands (20+ like human hand)\n- Tactile, force, vision sensors\n- Complex coordination for in-hand manipulation\n- Underactuation for simpler control\n\nGrasping Pipeline:\n1. Perception: Object recognition, pose estimation, segmentation\n2. Planning: Grasp synthesis, quality metrics, learning-based prediction\n3. Execution: Pre-grasping pose, force control, reactive adjustment\n4. In-Hand Manipulation: Reorient without releasing\n\nLearning-Based Approaches:\n- Train in simulation with synthetic data\n- Deep learning for grasp prediction from vision\n- 95% success rate on novel objects",
+          "tags": ["manipulation", "grasping", "dexterous", "hands", "learning"],
+          "metadata": {"chapter": "Week 12", "section": 1, "keyConcepts": ["Dexterous Manipulation", "Grasp Planning"]}
+        },
+        {
+          "id": "week-12-section-2",
+          "title": "Natural Human-Robot Interaction Design",
+          "content": "HRI design for intuitive interaction:\n\nPrinciples:\n- Intuitiveness: Natural interaction without training\n- Safety: Physical and psychological safety\n- Transparency: Robot intentions comprehensible\n- Predictability: Consistent behavior builds trust\n- Adaptability: Adjust to individual preferences\n\nModalities:\n1. Speech: ASR (Whisper), NLU, TTS\n2. Gestures: Recognition and generation\n3. Haptic: Physical contact, force feedback\n4. Visual: Gaze, facial expressions\n\nEthical Considerations:\n- Anthropomorphism and uncanny valley\n- Deception avoidance\n- Preventing unhealthy dependency",
+          "tags": ["HRI", "interaction", "speech", "gestures", "ethics"],
+          "metadata": {"chapter": "Week 12", "section": 2, "keyConcepts": ["HRI Design", "Multi-Modal Interaction"]}
+        }
+      ]
+    },
+    {
+      "id": "week-13",
+      "title": "Conversational Robotics and VLA Models",
+      "order": 13,
+      "difficulty": "Advanced",
+      "sections": [
+        {
+          "id": "week-13-section-1",
+          "title": "Vision-Language-Action (VLA) Models",
+          "content": "VLA models unify perception, language, and action:\n\nLeading VLA Models (2025):\n- RT-2 (Google): 55B params, web-scale knowledge transfer\n- GR00T N1.5 (NVIDIA): 10B params, generalist humanoid control\n- OpenVLA (Stanford): 7B params, open-source\n- PaLM-E (Google): 540B params, embodied reasoning\n\nRT-2 Capabilities:\n- Semantic understanding: \"Pick up thirsty robot\"\n- Numerical reasoning: \"Give me half the cookies\"\n- Cross-embodiment transfer between robots\n- 95% novel object grasping success\n\nGR00T Features:\n- Imitation learning from videos\n- Sim-to-real ready (trained in Isaac Sim)\n- Multimodal: video, language, proprioception\n- Real-time inference on Jetson Orin",
+          "tags": ["VLA", "RT-2", "GR00T", "foundation models", "embodied AI"],
+          "metadata": {"chapter": "Week 13", "section": 1, "keyConcepts": ["VLA Models", "Foundation Models for Robotics"]}
+        },
+        {
+          "id": "week-13-section-2",
+          "title": "Speech Recognition and NLU for Robotics",
+          "content": "Modern speech and language understanding:\n\nSpeech Recognition (ASR):\n- OpenAI Whisper v3: 98% accuracy, 100+ languages, <200ms latency\n- NVIDIA Riva: 50ms latency for real-time\n- Picovoice Porcupine: 10ms wake word detection\n\nNatural Language Understanding:\n- LLM-based intent extraction\n- Entity recognition with context\n- Zero-shot task understanding\n\nExample NLU Pipeline:\n```python\nfrom openai import OpenAI\nclient = OpenAI()\nresponse = client.chat.completions.create(\n    model=\"gpt-4o-mini\",\n    messages=[{\"role\": \"user\", \"content\": command}],\n    response_format={\"type\": \"json_object\"}\n)\n```\n\nOutput: {intent, objects, locations, constraints}",
+          "tags": ["speech recognition", "NLU", "Whisper", "LLM", "intent extraction"],
+          "metadata": {"chapter": "Week 13", "section": 2, "keyConcepts": ["ASR", "NLU", "Intent Recognition"]}
+        },
+        {
+          "id": "week-13-section-3",
+          "title": "Capstone: The Autonomous Humanoid",
+          "content": "Integrating all modules for a complete system:\n\nScenario: \"Please bring me the coffee mug from the desk\"\n\nExecution Flow:\n1. Speech Recognition (Whisper): Convert voice to text\n2. NLU (LLM): Extract intent (grasp), objects (coffee mug), location (desk)\n3. Cognitive Planning (VLA): Generate plan\n   - NAVIGATE_TO(desk)\n   - PERCEIVE_OBJECT(coffee_mug)\n   - GRASP_OBJECT(coffee_mug)\n   - NAVIGATE_TO(human)\n   - DELIVER_OBJECT\n4. Low-Level Control:\n   - Nav2: Path planning and execution\n   - Isaac ROS: Object detection and localization\n   - IK/Grasping: Manipulation control\n\nEvaluation Metrics:\n- Task Success Rate: >85%\n- Response Latency: <2 seconds\n- Human Satisfaction: >4.2/5",
+          "tags": ["capstone", "autonomous", "integration", "VLA", "complete system"],
+          "metadata": {"chapter": "Week 13", "section": 3, "keyConcepts": ["System Integration", "Autonomous Humanoid"]}
         }
       ]
     }

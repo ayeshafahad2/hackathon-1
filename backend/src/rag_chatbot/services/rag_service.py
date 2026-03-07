@@ -307,145 +307,162 @@ Please provide a helpful answer based on the textbook context above. Include cit
     
     def _generate_mock_response(self, query: str, context: List[Dict[str, Any]]) -> str:
         """
-        Generate a smart, professional, comprehensive response
+        Generate a smart, professional, comprehensive response with enhanced formatting
         """
         if not context:
-            return f"""I don't have specific information about that in the current textbook content.
+            return """I don't have specific information about that topic in the current textbook content.
 
-**Suggested topics:**
-• Humanoid robots - design, history, components
-• Kinematics - forward/inverse, DH parameters, DOF
-• Bipedal walking - ZMP, CoM, balance control
-• Physical AI - embodiment, perception-action loop
+**Suggested Topics I Can Help With:**
+• **Humanoid Robots** - design, history, components, applications
+• **Kinematics** - forward/inverse kinematics, DH parameters, DOF, Jacobian
+• **Bipedal Walking** - ZMP (Zero Moment Point), CoM, balance control, gait generation
+• **Physical AI** - embodiment, perception-action loop, sensorimotor contingencies
+• **ROS 2** - nodes, topics, services, actions, rclpy, URDF
+• **Gazebo Simulation** - physics engines, sensor simulation, plugins
+• **NVIDIA Isaac** - Isaac Sim, Isaac Lab, synthetic data, RL training
+• **VLA Models** - RT-2, GR00T, vision-language-action for robotics
 
-Please try a question related to these topics."""
-        
+Please try a question related to these topics from the Physical AI & Humanoid Robotics textbook."""
+
         best_match = context[0]
         chapter = best_match['chapter_title']
         section = best_match['section_title']
         content = best_match['content']
-        
-        # Clean content
+
+        # Clean content - extract just the main content part
         clean_content = content
         if "Chapter:" in clean_content and "Content:" in clean_content:
             content_idx = clean_content.find("Content:")
             clean_content = clean_content[content_idx + 8:].strip()
-        
+
         # Smart response based on query type
         query_lower = query.lower()
-        
+
         # Detect question type
-        is_what = query_lower.startswith(('what ', 'what is', 'what are'))
-        is_how = query_lower.startswith(('how ', 'how does'))
-        is_explain = query_lower.startswith(('explain ', 'describe ', 'tell me'))
-        is_define = query_lower.startswith(('define ', 'definition'))
-        
+        is_what = query_lower.startswith(('what ', 'what is', 'what are', 'define ', 'definition of'))
+        is_how = query_lower.startswith(('how ', 'how does', 'how do'))
+        is_explain = query_lower.startswith(('explain ', 'describe ', 'tell me about', 'teach me'))
+        is_why = query_lower.startswith(('why ', 'why does', 'why do'))
+        is_compare = query_lower.startswith(('compare ', 'difference between', 'vs '))
+
         # Extract paragraphs
         paragraphs = [p.strip() for p in clean_content.split('\n\n') if p.strip()]
-        
+
         if not paragraphs:
-            return "I found relevant information but couldn't extract a clear answer. Please try rephrasing your question."
-        
+            return "I found relevant information but couldn't extract a clear answer. Please try rephrasing your question or asking about a specific concept."
+
         response = []
-        
-        # Opening based on question type
-        if is_what or is_define:
+
+        # Professional opening based on question type
+        if is_what or is_explain:
             response.append(f"**{section}**")
             response.append("")
-        
-        # Main answer - use first paragraph, smart truncation
+        elif is_how:
+            response.append(f"**Understanding {section}**")
+            response.append("")
+        elif is_why:
+            response.append(f"**Explanation: {section}**")
+            response.append("")
+
+        # Main answer - intelligent extraction and formatting
         main_answer = paragraphs[0]
-        
-        # For "what is" questions, provide complete definition
-        if is_what or is_define:
-            if len(main_answer) > 250:
-                # Find sentence boundary
+
+        # For "what is" questions, provide complete definition with proper length
+        if is_what or is_explain:
+            if len(main_answer) > 300:
+                # Find sentence boundary for natural truncation
                 sentences = main_answer.split('. ')
                 main_answer = '. '.join(sentences[:2])
-                if len(main_answer) < 200 and len(sentences) > 2:
+                if len(main_answer) < 250 and len(sentences) > 2:
                     main_answer += '. ' + sentences[2]
-                main_answer = main_answer[:247] + "..."
-        elif is_how or is_explain:
-            # For how/explain, combine first two paragraphs if available
-            if len(paragraphs) > 1 and len(main_answer) < 150:
+                if len(main_answer) > 297:
+                    main_answer = main_answer[:297] + "..."
+        elif is_how or is_why:
+            # For how/explain/why questions, combine first two paragraphs if available
+            if len(paragraphs) > 1 and len(main_answer) < 200:
                 main_answer = main_answer + " " + paragraphs[1]
-            if len(main_answer) > 300:
-                main_answer = main_answer[:297] + "..."
+            if len(main_answer) > 350:
+                main_answer = main_answer[:347] + "..."
         else:
             # General questions
-            if len(main_answer) > 250:
-                main_answer = main_answer[:247] + "..."
-        
+            if len(main_answer) > 300:
+                main_answer = main_answer[:297] + "..."
+
         response.append(main_answer)
         response.append("")
-        
-        # Extract key points intelligently
+
+        # Extract key points intelligently with better formatting
         key_points = []
         concepts_found = set()
-        
+
         for para in paragraphs[1:]:
             para = para.strip()
-            
+
             # Look for numbered lists, bullet points, or key concepts
-            if para.startswith('-') or (para[0].isdigit() and '. ' in para):
-                point = para.lstrip('- ').strip()
-                
+            if para.startswith('-') or para.startswith('•') or (para[0].isdigit() and '. ' in para):
+                point = para.lstrip('- ').lstrip('• ').strip()
+
                 # Remove leading numbers
                 if point and point[0].isdigit() and '. ' in point:
                     point = point.split('. ', 1)[1]
-                
+
                 # Extract concept and explanation
                 if ':' in point:
                     parts = point.split(':', 1)
                     concept = parts[0].strip()
                     explanation = parts[1].strip()
-                    
+
                     # Avoid duplicates
                     if concept not in concepts_found:
                         concepts_found.add(concept)
-                        # Clean up explanation
-                        if len(explanation) > 150:
-                            explanation = explanation[:147] + "..."
+                        # Clean up explanation length
+                        if len(explanation) > 180:
+                            explanation = explanation[:177] + "..."
                         key_points.append(f"• **{concept}**: {explanation}")
                 else:
                     if point not in concepts_found:
                         concepts_found.add(point[:50])  # Use first 50 chars as key
                         key_points.append(f"• {point}")
-                
-                if len(key_points) >= 3:
+
+                if len(key_points) >= 4:
                     break
-            
-            # Also look for important terms in regular text
-            elif len(key_points) < 2 and len(para) > 50:
+
+            # Also look for important concepts in regular text
+            elif len(key_points) < 3 and len(para) > 80:
                 # Check if paragraph contains important concepts
-                important_words = ['system', 'control', 'robot', 'motion', 'joint', 'sensor', 
-                                   'algorithm', 'model', 'framework', 'approach', 'method']
+                important_words = ['system', 'control', 'robot', 'motion', 'joint', 'sensor',
+                                   'algorithm', 'model', 'framework', 'approach', 'method',
+                                   'process', 'mechanism', 'technique', 'strategy']
                 if any(word in para.lower() for word in important_words):
                     # Extract a key insight
-                    if len(para) > 120:
-                        para = para[:117] + "..."
+                    if len(para) > 150:
+                        para = para[:147] + "..."
                     key_points.append(f"• {para}")
-        
+
         if key_points:
             response.append("**Key Insights:**")
             response.extend(key_points)
             response.append("")
-        
-        # Add context about where this fits in the bigger picture
+
+        # Add related concepts from other context
         if len(context) > 1:
-            related_chapters = set()
+            related_sections = set()
             for ctx in context[1:]:
-                related_chapters.add(f"{ctx['section_title']}")
-            
-            if related_chapters:
+                related_sections.add(f"{ctx['section_title']}")
+
+            if related_sections:
                 response.append("**Related Concepts:**")
-                for related in list(related_chapters)[:2]:
+                for related in list(related_sections)[:3]:
                     response.append(f"→ {related}")
                 response.append("")
-        
-        # Professional source attribution
-        response.append(f"📖 *{chapter}* → {section}")
-        
+
+        # Professional source attribution with difficulty level
+        difficulty = best_match.get('difficulty', '')
+        if difficulty:
+            response.append(f"📖 *{chapter}* → **{section}** | Level: {difficulty}")
+        else:
+            response.append(f"📖 *{chapter}* → **{section}**")
+
         return "\n".join(response)
     
     async def chat(
