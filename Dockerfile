@@ -1,3 +1,6 @@
+# Use Python 3.11 slim image
+FROM python:3.11-slim
+
 # Set up user with UID 1000 (required for Hugging Face Spaces)
 RUN useradd -m -u 1000 user
 
@@ -20,13 +23,13 @@ USER user
 
 # Install Python dependencies
 RUN pip install --no-cache-dir --upgrade pip
-COPY backend/requirements-prod.txt .
+COPY --chown=user:user backend/requirements-prod.txt .
 RUN pip install --no-cache-dir -r requirements-prod.txt
 
 # Copy application files with correct permissions
-COPY --chown=user backend/src src/
-COPY --chown=user backend/data data/
-COPY --chown=user backend/.env.example .env
+COPY --chown=user:user backend/src src/
+COPY --chown=user:user backend/data data/
+COPY --chown=user:user backend/.env.example .env
 
 # Create chroma_db directory
 RUN mkdir -p chroma_db
