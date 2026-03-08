@@ -1,41 +1,30 @@
-# Use Python 3.11 slim image
 FROM python:3.11-slim
 
-# Set up user with UID 1000 (required for Hugging Face Spaces)
-RUN useradd -m -u 1000 user
-
-USER user
-
-ENV HOME=/home/user \
-    PATH=/home/user/.local/bin:$PATH \
-    PYTHONPATH=/home/user/app
-
-WORKDIR $HOME/app
+# Set working directory
+WORKDIR /app
 
 # Install system dependencies
-USER root
 RUN apt-get update && apt-get install -y \
     python3-dev \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
-USER user
-
 # Install Python dependencies
+COPY backend/requirements-prod.txt .
 RUN pip install --no-cache-dir --upgrade pip
-COPY --chown=user:user backend/requirements-prod.txt .
 RUN pip install --no-cache-dir -r requirements-prod.txt
 
-# Copy application files with correct permissions
-COPY --chown=user:user backend/src src/
-COPY --chown=user:user backend/data data/
-COPY --chown=user:user backend/.env.example .env
+# Copy application files
+COPY backend/src ./src/
 
-# Create chroma_db directory
+# Create chroma_db directory (data will be created on first run)
 RUN mkdir -p chroma_db
 
-# Expose port (Hugging Face will use this)
+# Expose port
 EXPOSE 7860
+
+# Set environment variables
+ENV PYTHONPATH=/app
 
 # Start the FastAPI application
 CMD ["uvicorn", "src.rag_chatbot.main:app", "--host", "0.0.0.0", "--port", "7860"]

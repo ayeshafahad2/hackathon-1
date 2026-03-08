@@ -12,8 +12,8 @@ class Settings(BaseSettings):
     gemini_api_key: Optional[str] = None
     gemini_model: str = "gemini-pro"
 
-    # Qdrant settings
-    qdrant_url: str
+    # Qdrant settings (optional for deployment)
+    qdrant_url: Optional[str] = None
     qdrant_api_key: Optional[str] = None
 
     # Postgres settings
