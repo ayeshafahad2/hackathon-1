@@ -84,7 +84,8 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       throw new Error('User not authenticated');
     }
 
-    const response = await fetch('http://localhost:8000/api/v1/auth/personalize-content', {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+    const response = await fetch(`${backendUrl}/api/v1/auth/personalize-content`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -107,7 +108,8 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       throw new Error('User not authenticated');
     }
 
-    const response = await fetch('http://localhost:8000/api/v1/auth/translate-urdu', {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+    const response = await fetch(`${backendUrl}/api/v1/auth/translate-urdu`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

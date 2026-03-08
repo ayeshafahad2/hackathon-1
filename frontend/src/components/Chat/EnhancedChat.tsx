@@ -41,7 +41,9 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false, c
   useEffect(() => {
     const checkBackendStatus = async () => {
       try {
-        const response = await fetch('http://localhost:8000/health', {
+        // Use environment variable for backend URL in production
+        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+        const response = await fetch(`${backendUrl}/health`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -116,8 +118,9 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false, c
       try {
         // Get user token if authenticated
         const token = localStorage.getItem('access_token');
-        
-        response = await fetch('http://localhost:8000/api/v1/chat', {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+
+        response = await fetch(`${backendUrl}/api/v1/chat`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
