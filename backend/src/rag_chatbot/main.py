@@ -1,11 +1,11 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import logging
 
 from .routes import chat, content
 from .config import settings
-from .services.rag_service import get_rag_service
+from .services.rag_service import get_rag_service, RAGService
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -17,7 +17,7 @@ async def lifespan(app: FastAPI):
     # Startup: Load content
     logger.info("Starting up RAG Chatbot API...")
     rag_service = get_rag_service()
-    
+
     # Load content on startup
     try:
         logger.info("Loading textbook content...")
@@ -28,9 +28,9 @@ async def lifespan(app: FastAPI):
             logger.error(f"Failed to load content: {result.get('error')}")
     except Exception as e:
         logger.error(f"Error loading content: {e}")
-    
+
     yield
-    
+
     # Shutdown
     logger.info("Shutting down RAG Chatbot API...")
 
@@ -41,10 +41,10 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Add CORS middleware
+# Add CORS middleware - allow all origins for production
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001"],  # Frontend URLs
+    allow_origins=["*"],  # Allow all origins for Hugging Face deployment
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -65,4 +65,14 @@ def read_root():
             "content_load": "/api/v1/content/load",
             "content_status": "/api/v1/content/status"
         }
+    }
+
+@app.get("/health")
+def health_check(rag_service: RAGService = Depends(get_rag_service)):
+    """Root health check endpoint"""
+    return {
+        "status": "healthy",
+        "service": "RAG Chatbot",
+        "content_loaded": rag_service.content_loaded,
+        "backend": "Hugging Face Spaces"
     }
