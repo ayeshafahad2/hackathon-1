@@ -84,7 +84,10 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       throw new Error('User not authenticated');
     }
 
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+    // Use environment variable or window global for backend URL in production
+    const backendUrl = (typeof window !== 'undefined' && (window as any).BACKEND_URL) 
+      || process.env.REACT_APP_BACKEND_URL 
+      || 'https://Ayeshaaabir-physical-ai-backend.hf.space';
     const response = await fetch(`${backendUrl}/api/v1/auth/personalize-content`, {
       method: 'POST',
       headers: {
@@ -108,7 +111,10 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       throw new Error('User not authenticated');
     }
 
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+    // Use environment variable or window global for backend URL in production
+    const backendUrl = (typeof window !== 'undefined' && (window as any).BACKEND_URL) 
+      || process.env.REACT_APP_BACKEND_URL 
+      || 'https://Ayeshaaabir-physical-ai-backend.hf.space';
     const response = await fetch(`${backendUrl}/api/v1/auth/translate-urdu`, {
       method: 'POST',
       headers: {

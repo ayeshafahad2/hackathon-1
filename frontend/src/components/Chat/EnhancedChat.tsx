@@ -41,8 +41,10 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false, c
   useEffect(() => {
     const checkBackendStatus = async () => {
       try {
-        // Use environment variable for backend URL in production
-        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+        // Use environment variable or window global for backend URL in production
+        const backendUrl = (typeof window !== 'undefined' && (window as any).BACKEND_URL) 
+          || process.env.REACT_APP_BACKEND_URL 
+          || 'https://Ayeshaaabir-physical-ai-backend.hf.space';
         const response = await fetch(`${backendUrl}/health`, {
           method: 'GET',
           headers: {
@@ -118,7 +120,10 @@ const EnhancedChatComponent: React.FC<EnhancedChatProps> = ({ compact = false, c
       try {
         // Get user token if authenticated
         const token = localStorage.getItem('access_token');
-        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+        // Use environment variable or window global for backend URL in production
+        const backendUrl = (typeof window !== 'undefined' && (window as any).BACKEND_URL) 
+          || process.env.REACT_APP_BACKEND_URL 
+          || 'https://Ayeshaaabir-physical-ai-backend.hf.space';
 
         response = await fetch(`${backendUrl}/api/v1/chat`, {
           method: 'POST',

@@ -101,6 +101,21 @@ const config: Config = {
         },
       };
     },
+    function backendUrlPlugin() {
+      return {
+        name: 'backend-url-plugin',
+        injectHtmlTags() {
+          const backendUrl = process.env.REACT_APP_BACKEND_URL || 'https://Ayeshaaabir-physical-ai-backend.hf.space';
+          return {
+            headTags: [
+              `<script>
+                window.BACKEND_URL = '${backendUrl}';
+              </script>`,
+            ],
+          };
+        },
+      };
+    },
   ],
 
   themeConfig: {
