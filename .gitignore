@@ -18,6 +18,17 @@ dist/
 *.egg-info/
 *.so
 
+# Deployment scripts with tokens
+RUN_DEPLOY.bat
+check_hf_status.py
+check_space.py
+redeploy_space.py
+update_dockerfile.py
+deploy_hf_manual.bat
+*.env
+.env.local
+.env.*.local
+
 # Logs
 logs/
 *.log
